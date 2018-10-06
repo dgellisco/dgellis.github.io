@@ -176,6 +176,12 @@ textarea {
     text-align: center;
     padding: 8px 24px 8px 24px;
     margin: 0 0px 0px 0px;
+    text-decoration: line-through;
+}
+
+#contact-form-submit-btn-disabled {
+    display: inline;
+    padding: 0px 0px 0px 10px;
 }
 
 /* Footer styling */
