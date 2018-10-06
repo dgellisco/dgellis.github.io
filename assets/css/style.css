@@ -118,7 +118,14 @@ a {
 
 /* Portfolio page styling */
 
+.portfolio-pic {
+    margin: 20px 20px 20px 0px;
+    padding: 0px;
+}
 
+#portfolio-pic-01 {
+
+}
 
 /* Contact page styling */
 
