@@ -118,13 +118,40 @@ a {
 
 /* Portfolio page styling */
 
-.portfolio-pic {
-    margin: 20px 20px 20px 0px;
+.portfolio-pic-page {
+    position: relative;
+    margin: 0px 20px 20px 0px;
     padding: 0px;
+    width: 260px;
+    height: 260px;
+    display: inline-block;
 }
 
-#portfolio-pic-01 {
+.portfolio-pic-page a {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
 
+.portfolio-pic {
+    position: absolute;
+    height: 260px;
+    width: 260px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(204, 204, 204);
+}
+
+.portfolio-pic-text {
+    background-color: #4aaaa5;
+    color:#ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    display: inline;
+    padding: 5px;
+    margin: 190px 0px 0px 0px;
 }
 
 /* Contact page styling */
@@ -166,6 +193,7 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: 20;
 }
 
 footer p {
