@@ -233,36 +233,61 @@ footer p {
 
 @media screen and (max-width: 640px) {
     
+    header {
+        position: static;
+        left: none;
+        top: none;
+        transform: none;
+        height: 50px;
+    }
+
     .nav-header {
         width: 100%;
         height: inherit;
         position: relative;
-        
     }
 
     .nav-header-name {
         width: 100%;
+        line-height: 50px;
     }
     
     .nav-header-links {
         width: 100%;
         background-color: #ffffff;
         text-align: center;
-        padding: 20px 0px 20px 0px;
+        padding: 10px 0px 10px 0px;
         position: static;
         top: 0;
         -webkit-transform: none;
         -ms-transform: none;
         transform: none;
-        border-bottom width: 4px;
+        border-bottom width: 2px;
         border-bottom-style: solid;
         border-bottom-color: rgb(204, 204, 204);
-        margin-bottom: 50px;
+        
     }
 
     .content-container {
-        margin-top: 162px;
+        margin-top: 72px;
         width: 90%;
+        margin-bottom: 39px;
+    }
+
+    #content-profile-pic {
+        float: none;
+        margin: auto;
+        display: block;
+    }
+
+    footer {
+        position: static;
+        margin-bottom: 0px;
+    }
+
+    footer p {
+        padding: 5px 0px 5px 0px;
+        margin-bottom: 0px;
     }
 
 }
