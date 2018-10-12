@@ -71,6 +71,7 @@ header {
     -webkit-transform: translateY(150%);
     -ms-transform: translateY(150%);
     transform: translateY(150%);
+    padding-right: 30px;
 }
 
 .nav-header-links a {
