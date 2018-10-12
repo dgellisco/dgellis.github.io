@@ -25,58 +25,45 @@ header {
     background-color: #ffffff;
     height: 76px;
     display: block;
-    width: 100%;
     margin: 0 auto;
     margin-bottom: 40px;
-    /* border */
     border-bottom width: 4px;
     border-bottom-style: solid;
     border-bottom-color: rgb(204, 204, 204);
-    /* positioning */
-    position: fixed;
-    left: 50%;
-    top: 0%;
-    transform: translate(-50%, 0%);
 }
 
 .nav-header {
     width: 960px;
     margin: 0 auto;
-    height: 100%;
     position: relative;
 }
 
 .nav-header-name {
     background-color: #4aaaa5;
     color:#ffffff;
-    height: 100%;
-    margin: 0 auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
     float: left;
     width: 30%;
     text-align: center;
-    vertical-align: middle;
-    line-height: 76px;
 }
 
 /* Used to rid the page of default html styling on links */
 
+a {
+    color: rgb(166,153,153);
+    text-decoration: none;
+    padding-left: 30px;
+}
 
 .nav-header-links {
     width: 70%;
     text-align: right;
     display: inline-block;
     position: absolute;
-    top: 0%;
+    top: 150%;
     -webkit-transform: translateY(150%);
     -ms-transform: translateY(150%);
     transform: translateY(150%);
-}
-
-.nav-header-links a {
-    color: rgb(166,153,153);
-    text-decoration: none;
-    padding-left: 30px;
 }
 
 /* Content section */
@@ -84,8 +71,7 @@ header {
 .content-container {
     width: 960px;
     margin: 0 auto;
-    margin-top: 106px;
-    margin-bottom: 99px;
+    margin-bottom: 110px;
     background-color: #ffffff;
     padding: 28px;
     border-style: solid;
@@ -219,50 +205,4 @@ footer {
 footer p {
     opacity: 0.5;
     padding-top: 20px;
-}
-
-/* Media queries */
-
-@media screen and (max-width: 980px) {
-
-}
-
-@media screen and (max-width: 768px) {
-
-}
-
-@media screen and (max-width: 640px) {
-    
-    .nav-header {
-        width: 100%;
-        height: inherit;
-        position: relative;
-        
-    }
-
-    .nav-header-name {
-        width: 100%;
-    }
-    
-    .nav-header-links {
-        width: 100%;
-        background-color: #ffffff;
-        text-align: center;
-        padding: 20px 0px 20px 0px;
-        position: static;
-        top: 0;
-        -webkit-transform: none;
-        -ms-transform: none;
-        transform: none;
-        border-bottom width: 4px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(204, 204, 204);
-        margin-bottom: 50px;
-    }
-
-    .content-container {
-        margin-top: 162px;
-        width: 90%;
-    }
-
 }
