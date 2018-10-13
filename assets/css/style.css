@@ -43,6 +43,7 @@ header {
 .nav-header {
     width: 960px;
     margin: 0 auto;
+    width: 95%;
     height: 100%;
     position: relative;
 }
@@ -72,7 +73,7 @@ header {
     -webkit-transform: translateY(150%);
     -ms-transform: translateY(150%);
     transform: translateY(150%);
-    padding: 0px 30px 0px 30px;
+    padding: 0px 0px 0px 30px;
 }
 
 .nav-header-links a {
@@ -85,7 +86,7 @@ header {
 /* Content section */
 
 .content-container {
-    width: 960px;
+    /* width: 960px; */
     margin: 0 auto;
     margin-top: 106px;
     margin-bottom: 99px;
@@ -94,6 +95,9 @@ header {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(221,221,221);
+    float: left;
+    margin-left: 2.5%;
+    width: 714px;
 }
 
 #content-header {
@@ -134,6 +138,12 @@ header {
 }
 
 /* Portfolio page styling */
+
+.portfolio-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
 
 .portfolio-pic-container {
     position: relative;
@@ -246,7 +256,7 @@ footer p {
 
 /* Media queries */
 
-@media screen and (max-width: 1440px) {
+/* @media screen and (max-width: 2560px) {
     .nav-header {
         width: 95%;
     }
@@ -268,7 +278,7 @@ footer p {
 
     .portfolio-pic {
         position: relative;
-    }
+    } */
 
 @media screen and (max-width: 980px) {
     .nav-header {
