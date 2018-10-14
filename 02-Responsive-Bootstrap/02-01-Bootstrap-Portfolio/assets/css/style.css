@@ -55,16 +55,16 @@ body {
     max-height: auto;
 }
 
-.content-portfolio-card-body {
+/* .content-portfolio-card-body {
     position: relative;
-}
+} */
 
 .content-portfolio-pic {
     opacity: 1;
 }
-
+/* 
 .card-text {
-    
+    position: absolute;
 }
 
 .content-portfolio-open-btn {
@@ -72,7 +72,7 @@ body {
     bottom: 10%;
     right: 5%;
     margin: 15px 0px 0px 10px;
-}
+} */
 
 .content-portfolio {
     margin-bottom: 32px;
