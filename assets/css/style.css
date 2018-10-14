@@ -48,12 +48,18 @@ body {
 
 /* Portfolio page */
 
+.container-content .row {
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
 .content-portfolio-card {
     margin: 0px 0px 30px 0px;
     width: auto;
     height: auto;
     max-width: 300px;
     max-height: auto;
+    min-width: 170px;
 }
 
 /* .content-portfolio-card-body {
@@ -68,6 +74,24 @@ body {
     position: absolute;
 }
 
+*/
+
+.content-portfolio-card-body {
+    padding-bottom: 42px;
+    position: relative;
+}
+
+.content-container-for-portfolio-btn-row {
+    position: absolute;
+    right: 0%;
+    bottom: 8%;
+}
+
+.content-porfolio-btn-col {
+    padding: 0px;
+}
+
+/*
 .content-portfolio-open-btn {
     position: absolute;
     bottom: 10%;
@@ -79,16 +103,57 @@ body {
     margin-bottom: 32px;
 }
 
+/* Contact page */
+
+.contact-card {
+    padding-bottom: 0px;
+}
+
+#content-contact-btn-disabled {
+    text-align: right;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.content-contact-btn {
+    text-decoration: line-through;
+}
+
+
 @media screen and (max-width: 768px) {
+    
     .footer {
         position: static;
     }
 
-    .container-content {
-        margin: 30px 0px 30px 0px;
+    .container-content .row {
+        margin: 30px 0px 0px 0px;
     }
+
+    .container-content {
+        margin-bottom: 30px;
+    }
+
 
     .content-portfolio {
         margin-bottom: 0px;
     }
-}
+
+    .content-container-for-portfolio-btn-row {
+        position: absolute;
+        right: 5%;
+        bottom: 8%;
+    }
+
+@media screen and (max-width: 576px) {
+
+    .content-portfolio .content-portfolio-card {
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .content-container-for-portfolio-btn-row {
+        position: absolute;
+        right: 5%;
+        bottom: 8%;
+    }
