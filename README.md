@@ -1,2 +1,1 @@
-# Basic-Portfolio
-DU Bootcamp - Basic-Portfolio
+# Bootstrap-Portfolio

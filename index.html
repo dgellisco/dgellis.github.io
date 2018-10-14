@@ -5,58 +5,77 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>David Ellis: About Me</title>
-    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <!--Body Container-->
-    <div class="wrapper">
-    
-        <!--Title and Navbar-->
-        <header>
-
-            <section class="nav-header">
+    <!-- NavBar -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col navbar-col">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="#">David Ellis</a>
                 
-                <h1 class="nav-header-name">David Ellis</h1>
-
-                <nav class="nav-header-links">
-                    <a href="index.html">About Me</a>
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="contact.html">Contact</a>
+                    <!-- Toggler/collapsibe Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                            <a class="nav-link" href="index.html">About Me</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                            </li> 
+                        </ul>
+                    </div> 
                 </nav>
-            
-            </section>
-
-        </header>
-        
-        <!--Content-->
-        <section class="content-container">
-            
-            <h1 id="content-header">About Me</h1>
-            
-            <!--Profile image-->
-            <img id="content-profile-pic" src="assets/images/portfolio-about-me.jpg" alt="portfolio-about-me-picture">
-
-            <!--About Me text-->
-            <p class="content-profile-quote">"It seems that the more places I see and experience, the bigger I realize the world to be. The more I become aware of, the more I realize how relatively little I know of it, how many places I have still to go, how much more there is to learn. Maybe that’s enlightenment enough - to know that there is no final resting place of the mind, no moment of smug clarity. Perhaps wisdom, at least for me, means realizing how small I am, and unwise, and how far I have yet to go."</p>
-            
-            <p class="content-profile-quote content-profile-quote-credit">- Anthony Bourdain</p>
-
-            <p>Anthony Bourdain had a passion for exploring the world around him.  He enjoyed having new experiences, meeting new people, and going to new places.  He appreciated the power of these experiences to develop his understanding of the world, of life, and of himself.  I share this passion, and enjoy spending my spare moments seeing concerts, hiking mountains, travelling, meeting new people, and undertaking new challenges.  I'm always learning new things, unlearning old things, and constantly reminded how small my window to the world must be.  I am often reminded to keep a curious and open mind.</p>
-            
-            <p>My latest endeavor has been into Full-Stack Web Development, and it's been a humbling experience.  There is so much to learn, and even with an unrelenting passion for development and growth, there will always be more to know.  But, armed with determination and vision, I know that great things can be achieved.  I plan to learn from those around me and continually build my skill set, while being of assistance to others whenever I can.<p>
-                
-        </section>
-
-        <!--Footer-->
-        <footer>
-            <p>Copyright &copy</p>
-        </footer>
-
+            </div>
+        </div>
     </div>
+
+    <!-- Body -->
+    <div class="container-fluid container-content">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-md-9">
+                <div class="card" style="width: 100%">
+                    <div class="card-body">
+                        <h3 class="card-title content-title">About Me</h5>
+                        <p class="content-about-me-quote">"It seems that the more places I see and experience, the bigger I realize the world to be. The more I become aware of, the more I realize how relatively little I know of it, how many places I have still to go, how much more there is to learn. Maybe that’s enlightenment enough - to know that there is no final resting place of the mind, no moment of smug clarity. Perhaps wisdom, at least for me, means realizing how small I am, and unwise, and how far I have yet to go."</p>
+                        <p class="content-about-me-quote content-about-me-quote-credit">- Anthony Bourdain</p>
+                        <br>
+                        <p>Anthony Bourdain had a passion for exploring the world around him.  He enjoyed having new experiences, meeting new people, and going to new places.  He appreciated the power of these experiences to develop his understanding of the world, of life, and of himself.  I share this passion, and enjoy spending my spare moments seeing concerts, hiking mountains, travelling, meeting new people, and undertaking new challenges.  I'm always learning new things, unlearning old things, and constantly reminded how small my window to the world must be.  I am often reminded to keep a curious and open mind.</p>         
+                        <p>My latest endeavor has been into Full-Stack Web Development, and it's been a humbling experience.  There is so much to learn, and even with an unrelenting passion for development and growth, there will always be more to know.  But, armed with determination and vision, I know that great things can be achieved.  I plan to learn from those around me and continually build my skill set, while being of assistance to others whenever I can.<p>
+                        <br>
+                        <br>
+                        <a href="https://www.google.com/search?rlz=1C1CHFX_enUS747US747&ei=E3jDW9jOG4S70PEPkIii4As&q=flights%3A+denver+to+anywhere&oq=flights%3A+denver+to+anywhere&gs_l=psy-ab.3..0i7i30j0i7i5i30.2163.2972..3173...0.0..0.178.1020.5j4......0....1..gws-wiz.......0i71j35i304i39.FmfcbKnta30" target="_blank" class="btn btn-primary content-about-me-btn">Go somewhere!</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+
+	<footer class="footer">
+		<div class="container-fluid bg-dark">
+			<span class="text-muted">Copyright &copy;</span>
+		</div>
+	</footer>
 
 </body>
 

@@ -1,404 +1,93 @@
-/* Use border-box not content-box to ensure sizes remain the same regardless of padding or margin */
-
-* {
-    box-sizing: border-box;
-}
-
-/* Body section */
-
 body {
-    background-image: url(../images/page-background.png);
-    background-repeat: repeat;
-    display: block;
-    margin: 0 auto;
+    background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* Used to ensure the textbox has the same font as the rest of the site */
-body, textarea {
-    color: #777777;
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+.navbar-col {
+    padding: 0px;
+    opacity: 0.9;
 }
 
-/* Header section */
-
-header {
-    background-color: #ffffff;
-    height: 76px;
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    /* border */
-    border-bottom width: 4px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(204, 204, 204);
-    /* positioning */
-    position: fixed;
-    left: 50%;
-    top: 0%;
-    transform: translate(-50%, 0%);
-    z-index: 20;
+.container-content {
+    margin: 30px 0px 65px 0px;
 }
 
-.nav-header {
-    width: 960px;
-    margin: 0 auto;
-    width: 95%;
-    height: 100%;
-    position: relative;
+.card {
+    opacity: 0.8;
 }
 
-.nav-header-name {
-    background-color: #4aaaa5;
-    color:#ffffff;
-    height: 100%;
-    margin: 0 auto;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    float: left;
-    width: 30%;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 76px;
+.content-title {
+    margin: 0px 0px 15px 0px;
 }
 
-/* Used to rid the page of default html styling on links */
-
-
-.nav-header-links {
-    width: 70%;
-    text-align: right;
-    display: inline-block;
-    position: absolute;
-    top: 0%;
-    -webkit-transform: translateY(150%);
-    -ms-transform: translateY(150%);
-    transform: translateY(150%);
-    padding: 0px 0px 0px 30px;
-}
-
-.nav-header-links a {
-    color: rgb(166,153,153);
-    text-decoration: none;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-/* Content section */
-
-.content-container {
-    /* width: 960px; */
-    margin: 0 auto;
-    margin-top: 106px;
-    margin-bottom: 99px;
-    background-color: #ffffff;
-    padding: 28px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(221,221,221);
-    float: left;
-    margin-left: 2.5%;
-    width: 714px;
-}
-
-#content-header {
-    color: #4aaaa5;
-    font-family: Georgia, 'Times New Roman', Times, serif;    
-    vertical-align: middle;
-    margin-top: 10px;
-    padding-bottom: 18px;
-    border-bottom width: 4px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(204, 204, 204);
-}
-
-/* Index page styling */
-
-#content-profile-pic {
-    float: left;
-    height: 260px;
-    width: auto;
-    margin-right: 25px;
-    margin-bottom: 5px;
-}
-
-.content-container p {
-    line-height: 30px;
-}
-
-.contact-form p {
-    margin-bottom: 2px;
-}
-
-.content-profile-quote {
+.content-about-me-quote {
     font-style: italic;
 }
 
-.content-profile-quote-credit {
+.content-about-me-quote-credit {
     text-align: right;
 }
 
-/* Portfolio page styling */
-
-.portfolio-wrapper {
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
+.content-about-me-btn {
+    float: right;
 }
 
-.portfolio-pic-container {
-    position: relative;
-    /* float: none; */
-    /* margin: 0px 0px 20px 0px; */
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 0px;
-    height: auto;
-    width: 48%;
-    /* min-width: 260px;
-    min-height: 260px; */
-    /* max-width: 410px;
-    max-height: 410px; */
-    /* height: 260px;
-    width: 260px; */
-    display: inline-block;
-}
-
-.portfolio-pic-container a {
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-}
-
-.portfolio-pic {
-    /* position: absolute; */
-    position: relative;
-    height: auto;
-    width: 100%;
-    border-style: solid;
-    border-width: 2px;
-    border-color: rgb(204, 204, 204);
-}
-
-.portfolio-pic-text {
-    background-color: #4aaaa5;
-    color:#ffffff;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 100%;
-    position: absolute;
+.footer {
     text-align: center;
-    z-index: 1;
-    display: inline;
-    top: 75%;
-    padding: 5px;
-    margin: 0px;
-}
-
-.portfolio-pic-container-left {
-    margin-right: 8px;
-}
-
-.portfolio-pic-container-right {
-    margin-left: 8px;
-}
-
-/* Contact page styling */
-
-input, textarea {
-    width: 100%;
-    height: 30px;
-    padding: 8px 8px 8px 8px;
-}
-
-textarea {
-    height: 200px;
-    margin-bottom: 14px;
-    font-size: 14px;
-}
-
-#contact-form-submit-btn {
-    background-color: #4aaaa5;
-    color:#ffffff;
-    width: 100px;
-    display: inline-block;
-    text-align: center;
-    padding: 8px 24px 8px 24px;
-    margin: 0 0px 0px 0px;
-    text-decoration: line-through;
-}
-
-#contact-form-submit-btn-disabled {
-    display: inline;
-    padding: 0px 0px 0px 10px;
-}
-
-/* Footer styling */
-
-footer {
-    border-top-width: 8px;
-    border-top-style: solid;    
-    border-top-color: #4aaaa5;
-    background-color: #666666;
-    color: white;
-    text-align: center;
-    font-size: 13px;
-    margin: 0 auto;
-    width: 100%;
+    opacity: 0.9;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 20;
+    width: 100%;
+    bottom: 0%;
 }
 
-footer p {
-    opacity: 0.5;
-    padding-top: 20px;
+.footer .container-fluid {
+    padding: 8px 0px 3px 0px;
 }
 
-/* Media queries */
+/* Portfolio page */
 
-/* @media screen and (max-width: 2560px) {
-    .nav-header {
-        width: 95%;
-    }
-    .nav-header-links {
-        padding-right: 0px;
-    }
+.content-portfolio-card {
+    margin: 0px 0px 30px 0px;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: auto;
+}
 
-    .content-container {
-        float: left;
-        margin-left: 2.5%;
-        width: 714px;
-    }
+.content-portfolio-card-body {
+    position: relative;
+}
 
-    .portfolio-wrapper {
-        margin: 0 auto;
-        width: 100%;
-        height: auto;
-    }
+.content-portfolio-pic {
+    opacity: 1;
+}
 
-    .portfolio-pic {
-        position: relative;
-    } */
+.card-text {
+    
+}
 
-@media screen and (max-width: 980px) {
-    .nav-header {
-        width: 95%;
-    }
-    .nav-header-links {
-        padding-right: 0px;
-    }
+.content-portfolio-open-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    margin: 15px 0px 0px 10px;
+}
 
-    .content-container {
-        float: left;
-        margin-left: 2.5%;
-        width: 714px;
-    }
-
-    .portfolio-wrapper {
-        margin: 0 auto;
-        width: 100%;
-        height: auto;
-    }
-
-    .portfolio-pic {
-        position: relative;
-    }
+.content-portfolio {
+    margin-bottom: 32px;
+}
 
 @media screen and (max-width: 768px) {
-    .content-container {
-        float: none;
-        margin: 0 auto;
-        width: 95%;
-        margin-top: 106px;
-        margin-bottom: 99px;
-    }
-
-}
-
-@media screen and (max-width: 640px) {
-    
-    header {
+    .footer {
         position: static;
-        left: none;
-        top: none;
-        transform: none;
-        height: 65px;
     }
 
-    .nav-header {
-        width: 100%;
-        height: inherit;
-        position: relative;
+    .container-content {
+        margin: 30px 0px 30px 0px;
     }
 
-    .nav-header-name {
-        width: 100%;
-        line-height: 65px;
-    }
-    
-    .nav-header-links {
-        width: 100%;
-        background-color: #ffffff;
-        text-align: center;
-        padding: 15px 0px 15px 0px;
-        position: static;
-        top: 0;
-        -webkit-transform: none;
-        -ms-transform: none;
-        transform: none;
-        border-bottom width: 2px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(204, 204, 204);
-    }
-
-    .content-container {
-        margin-top: 70px;
-        margin-bottom: 25px;
-        width: 95%;
-    }
-
-    #content-profile-pic {
-        float: left;
-    }
-
-    .portfolio-wrapper {
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .portfolio-pic-container {
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 8px;
-        margin-bottom: 18px;
-        /* display: inline-block; */
-    }
-
-    .portfolio-pic-text {
-        left: 0;
-    }
-
-    footer {
-        position: static;
+    .content-portfolio {
         margin-bottom: 0px;
     }
-
-    footer p {
-        padding: 5px 0px 5px 0px;
-        margin-bottom: 0px;
-    }
-
-}
-
-@media screen and (max-width: 570px) {
-    #content-profile-pic {
-        margin: 0 auto;
-        float: none;
-        display: block;
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        max-height: auto;
-    }
-
 }
