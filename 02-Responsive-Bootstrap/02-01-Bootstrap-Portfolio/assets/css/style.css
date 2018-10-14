@@ -1,0 +1,93 @@
+body {
+    background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-col {
+    padding: 0px;
+    opacity: 0.9;
+}
+
+.container-content {
+    margin: 30px 0px 65px 0px;
+}
+
+.card {
+    opacity: 0.8;
+}
+
+.content-title {
+    margin: 0px 0px 15px 0px;
+}
+
+.content-about-me-quote {
+    font-style: italic;
+}
+
+.content-about-me-quote-credit {
+    text-align: right;
+}
+
+.content-about-me-btn {
+    float: right;
+}
+
+.footer {
+    text-align: center;
+    opacity: 0.9;
+    position: fixed;
+    width: 100%;
+    bottom: 0%;
+}
+
+.footer .container-fluid {
+    padding: 8px 0px 3px 0px;
+}
+
+/* Portfolio page */
+
+.content-portfolio-card {
+    margin: 0px 0px 30px 0px;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: auto;
+}
+
+.content-portfolio-card-body {
+    position: relative;
+}
+
+.content-portfolio-pic {
+    opacity: 1;
+}
+
+.card-text {
+    
+}
+
+.content-portfolio-open-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    margin: 15px 0px 0px 10px;
+}
+
+.content-portfolio {
+    margin-bottom: 32px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        position: static;
+    }
+
+    .container-content {
+        margin: 30px 0px 30px 0px;
+    }
+
+    .content-portfolio {
+        margin-bottom: 0px;
+    }
+}
