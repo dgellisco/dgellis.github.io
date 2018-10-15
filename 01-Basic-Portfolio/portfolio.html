@@ -5,174 +5,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>David Ellis: Portfolio</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- NavBar -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col navbar-col">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <!-- Brand -->
-                    <a class="navbar-brand" href="index.html">David Ellis</a>
+    <!--Body Container-->
+    <div class="wrapper">
+    
+        <!--Title and Navbar-->
+        <header>
+
+            <section class="nav-header">
                 
-                    <!-- Toggler/collapsibe Button -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                
-                    <!-- Navbar links -->
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                            <a class="nav-link" href="aboutme.html">About Me</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                            </li> 
-                        </ul>
-                    </div> 
+                <header class="nav-header-name">
+                    <h1>David Ellis</h1>
+                </header>
+
+                <nav class="nav-header-links">
+                    <a href="index.html">Index</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
                 </nav>
-            </div>
-        </div>
-    </div>
-
-    <!-- Body -->
-    <div class="container-content content-portfolio">
             
-        <div class="container-fluid">
-            <div class="row">
+            </section>
 
-                
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-01" src="assets/images/project-01-basic.jpg" alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Basic Portfolio</h5>
-                            <p class="card-text">The first attempt.  Not responsive.</p>
-                            <p class="card-text">Burn it.  Burn it to the ground.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                    <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://dgellisco.github.io/01-Basic-Portfolio/index.html" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </header>
+        
+        <!--Content-->
+        <section class="content-container">
+            
+            <h1 id="content-header">Portfolio</h1>
+            
+            <!--Portfolios-->
+            <div class="portfolio-pic-page">
+                <a href="index.html"><img class="portfolio-pic" id="portfolio-pic-01" src="assets/images/project-01-portfolio.jpg">
+                <p class="portfolio-pic-text">Portfolio</p></a>
+            </div>
 
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-02" src="assets/images/project-02-bootstrap.jpg" alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Bootstrap Portfolio</h5>
-                            <p class="card-text">Well, this is much easier.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                    <div class="row content-container-for-portfolio-btn-row">
-                                        <div class="col content-porfolio-btn-col">
-                                        <a href="https://dgellisco.github.io/02-Responsive-Bootstrap/02-01-Bootstrap-Portfolio/index.html" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View</a>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="portfolio-pic-page">
+                <a href="#"><img class="portfolio-pic" id="portfolio-pic-02" src="https://via.placeholder.com/260x260">
+                <p class="portfolio-pic-text">Project 2</p></a>
+            </div>
 
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="card content-portfolio-card">
-                            <img class="card-img-top content-portfolio-pic" id="portfolio-pic-03" src="assets/images/project-03-responsive.jpg" alt="Error: Missing Portfolio Pic">
-                            <div class="card-body content-portfolio-card-body">
-                                <h5 class="card-title">Responsive Portfolio</h5>
-                                <p class="card-text">Raw CSS vs. Boostrap.  Who won the smackdown?</p>
-                                <div class="container-fluid content-container-for-portfolio-btn">
-                                        <div class="row content-container-for-portfolio-btn-row">
-                                        <div class="col content-porfolio-btn-col">
-                                                <a href="https://dgellisco.github.io/02-Responsive-Bootstrap/02-02-Responsive-Portfolio/index.html" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+            <div class="portfolio-pic-page">
+                <a href="#"><img class="portfolio-pic" id="portfolio-pic-03" src="https://via.placeholder.com/260x260">
+                <p class="portfolio-pic-text">Project 3</p></a>
+            </div>
 
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-04" src="https://via.placeholder.com/260x260" alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Project 04</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                    <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                            <a href="#" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="portfolio-pic-page">
+                <a href="#"><img class="portfolio-pic" id="portfolio-pic-04" src="https://via.placeholder.com/260x260">
+                <p class="portfolio-pic-text">Project 4</p></a>
+            </div>
 
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-05" src="https://via.placeholder.com/260x260" alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Project 05</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                    <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="#" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="card content-portfolio-card">
-                            <img class="card-img-top content-portfolio-pic" id="portfolio-pic-06" src="https://via.placeholder.com/260x260" alt="Error: Missing Portfolio Pic">
-                            <div class="card-body content-portfolio-card-body">
-                                <h5 class="card-title">Project 06</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <div class="container-fluid content-container-for-portfolio-btn">
-                                    <div class="row content-container-for-portfolio-btn-row">
-                                        <div class="col content-porfolio-btn-col">
-                                            <a href="#" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                    
-
-
+            <div class="portfolio-pic-page">
+                <a href="#"><img class="portfolio-pic" id="portfolio-pic-05" src="https://via.placeholder.com/260x260">
+                <p class="portfolio-pic-text">Project 5</p></a>
                 
             </div>
-        </div>
+
+            <div class="portfolio-pic-page">
+                <a href="#"><img class="portfolio-pic" id="portfolio-pic-06" src="https://via.placeholder.com/260x260">
+                <p class="portfolio-pic-text">Project 6</p></a>
+            </div>
+                
+        </section>
+
+        <!--Footer-->
+        <footer>
+            <p>Copyright &copy</p>
+        </footer>
 
     </div>
 
-	<footer class="footer">
-		<div class="container-fluid bg-dark">
-			<span class="text-muted">Copyright &copy;</span>
-		</div>
-	</footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
