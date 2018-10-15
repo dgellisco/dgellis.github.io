@@ -162,7 +162,7 @@ body {
 
 @media screen and (max-width: 576px) {
 
-    .body {
+    body {
         background-image: url(../images/backgroundflippedmob.jpg);
         background-repeat: no-repeat;
         background-size: cover;
