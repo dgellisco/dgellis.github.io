@@ -3,7 +3,8 @@ html, body {
 }
 
 body {
-    background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg);
+    /* background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg); */
+    background: url(../images/background\ flipped.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
