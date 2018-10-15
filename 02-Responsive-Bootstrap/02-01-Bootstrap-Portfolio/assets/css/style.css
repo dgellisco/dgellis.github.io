@@ -122,8 +122,12 @@ body {
 
 @media screen and (max-width: 768px) {
     
-    .footer {
-        position: static;
+    .footer-background {
+        text-align: center;
+        opacity: 0.9;
+        position: fixed;
+        width: 100%;
+        bottom: 0%;
     }
 
     .container-content .row {
@@ -157,3 +161,12 @@ body {
         right: 5%;
         bottom: 8%;
     }
+
+    .footer-background {
+        text-align: center;
+        opacity: 0.9;
+        position: fixed;
+        width: 100%;
+        bottom: 0%;
+    }
+    
