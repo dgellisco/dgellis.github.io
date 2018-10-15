@@ -1,208 +1,181 @@
-/* Use border-box not content-box to ensure sizes remain the same regardless of padding or margin */
-
-* {
-    box-sizing: border-box;
+html, body {
+    height: 100%;
 }
-
-/* Body section */
 
 body {
-    background-image: url(../images/page-background.png);
-    background-repeat: repeat;
-    display: block;
-    margin: 0 auto;
+    /* background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg); */
+    background-image: url(../images/backgroundflipped.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;   
 }
 
-/* Used to ensure the textbox has the same font as the rest of the site */
-body, textarea {
-    color: #777777;
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+.navbar-col {
+    padding: 0px;
+    opacity: 0.9;
 }
 
-/* Header section */
-
-header {
-    background-color: #ffffff;
-    height: 76px;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    border-bottom width: 4px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(204, 204, 204);
+.container-content {
+    margin: 30px 0px 65px 0px;
 }
 
-.nav-header {
-    width: 960px;
-    margin: 0 auto;
-    position: relative;
+.card {
+    opacity: 0.8;
 }
 
-.nav-header-name {
-    background-color: #4aaaa5;
-    color:#ffffff;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    float: left;
-    width: 30%;
-    text-align: center;
+.content-title {
+    margin: 0px 0px 15px 0px;
 }
 
-/* Used to rid the page of default html styling on links */
-
-a {
-    color: rgb(166,153,153);
-    text-decoration: none;
-    padding-left: 30px;
-}
-
-.nav-header-links {
-    width: 70%;
-    text-align: right;
-    display: inline-block;
-    position: absolute;
-    top: 150%;
-    -webkit-transform: translateY(150%);
-    -ms-transform: translateY(150%);
-    transform: translateY(150%);
-}
-
-/* Content section */
-
-.content-container {
-    width: 960px;
-    margin: 0 auto;
-    margin-bottom: 110px;
-    background-color: #ffffff;
-    padding: 28px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(221,221,221);
-}
-
-#content-header {
-    color: #4aaaa5;
-    font-family: Georgia, 'Times New Roman', Times, serif;    
-    vertical-align: middle;
-    margin-top: 10px;
-    padding-bottom: 18px;
-    border-bottom width: 4px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(204, 204, 204);
-}
-
-/* Index page styling */
-
-#content-profile-pic {
-    float: left;
-    height: 260px;
-    width: auto;
-    margin-right: 25px;
-    margin-bottom: 5px;
-}
-
-.content-container p {
-    line-height: 30px;
-}
-
-.contact-form p {
-    margin-bottom: 2px;
-}
-
-.content-profile-quote {
+.content-about-me-quote {
     font-style: italic;
 }
 
-.content-profile-quote-credit {
+.content-about-me-quote-credit {
     text-align: right;
 }
 
-/* Portfolio page styling */
+.content-about-me-btn {
+    float: right;
+}
 
-.portfolio-pic-page {
+.footer {
+    text-align: center;
+    opacity: 0.9;
+    position: fixed;
+    width: 100%;
+    bottom: 0%;
+}
+
+.footer .container-fluid {
+    padding: 8px 0px 3px 0px;
+}
+
+/* Portfolio page */
+
+.container-content .row {
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.content-portfolio-card {
+    margin: 0px 0px 30px 0px;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: auto;
+    min-width: 170px;
+}
+
+/* .content-portfolio-card-body {
     position: relative;
-    margin: 0px 20px 20px 0px;
+} */
+
+.content-portfolio-pic {
+    opacity: 1;
+}
+/* 
+.card-text {
+    position: absolute;
+}
+
+*/
+
+.content-portfolio-card-body {
+    padding-bottom: 42px;
+    position: relative;
+}
+
+.content-container-for-portfolio-btn-row {
+    position: absolute;
+    right: 0%;
+    bottom: 8%;
+}
+
+.content-porfolio-btn-col {
     padding: 0px;
-    width: 260px;
-    height: 260px;
-    display: inline-block;
 }
 
-.portfolio-pic-page a {
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-}
-
-.portfolio-pic {
+/*
+.content-portfolio-open-btn {
     position: absolute;
-    height: 260px;
-    width: 260px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: rgb(204, 204, 204);
+    bottom: 10%;
+    right: 5%;
+    margin: 15px 0px 0px 10px;
+} */
+
+.content-portfolio {
+    margin-bottom: 32px;
 }
 
-.portfolio-pic-text {
-    background-color: #4aaaa5;
-    color:#ffffff;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    z-index: 1;
-    display: inline;
-    padding: 5px;
-    margin: 190px 0px 0px 0px;
+/* Contact page */
+
+.contact-card {
+    padding-bottom: 0px;
 }
 
-/* Contact page styling */
-
-input, textarea {
-    width: 100%;
-    height: 30px;
-    padding: 8px 8px 8px 8px;
+#content-contact-btn-disabled {
+    text-align: right;
+    margin-left: 10px;
+    vertical-align: middle;
 }
 
-textarea {
-    height: 200px;
-    margin-bottom: 14px;
-    font-size: 14px;
-}
-
-#contact-form-submit-btn {
-    background-color: #4aaaa5;
-    color:#ffffff;
-    width: 100px;
-    display: inline-block;
-    text-align: center;
-    padding: 8px 24px 8px 24px;
-    margin: 0 0px 0px 0px;
+.content-contact-btn {
     text-decoration: line-through;
 }
 
-#contact-form-submit-btn-disabled {
-    display: inline;
-    padding: 0px 0px 0px 10px;
+.content-background-container {
+    height: 100%;
+    width: auto;
 }
 
-/* Footer styling */
 
-footer {
-    border-top-width: 8px;
-    border-top-style: solid;    
-    border-top-color: #4aaaa5;
-    background-color: #666666;
-    color: white;
-    text-align: center;
-    font-size: 13px;
-    margin: 0 auto;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 20;
-}
+@media screen and (max-width: 768px) {
+    
+    .footer-background {
+        text-align: center;
+        opacity: 0.9;
+        position: fixed;
+        width: 100%;
+        bottom: 0%;
+    }
 
-footer p {
-    opacity: 0.5;
-    padding-top: 20px;
-}
+    .container-content .row {
+        margin: 30px 0px 0px 0px;
+    }
+
+    .container-content {
+        margin-bottom: 60px;
+    }
+
+
+    .content-portfolio {
+        margin-bottom: 30px;
+    }
+
+    .content-container-for-portfolio-btn-row {
+        position: absolute;
+        right: 5%;
+        bottom: 8%;
+    }
+
+@media screen and (max-width: 576px) {
+  
+    .content-portfolio .content-portfolio-card {
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .content-container-for-portfolio-btn-row {
+        position: absolute;
+        right: 5%;
+        bottom: 8%;
+    }
+
+    .footer-background {
+        text-align: center;
+        opacity: 0.9;
+        position: fixed;
+        width: 100%;
+        bottom: 0%;
+    }
