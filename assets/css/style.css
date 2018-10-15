@@ -1,6 +1,6 @@
-html, body {
+/* body {
     height: 100%;
-}
+} */
 
 body {
     /* background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg); */
@@ -8,6 +8,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    
 }
 
 .navbar-col {
@@ -160,6 +161,14 @@ body {
     }
 
 @media screen and (max-width: 576px) {
+
+    .body {
+        background: url(../images/backgroundflippedmob.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    
 
     .content-portfolio .content-portfolio-card {
         margin: 0 auto;
