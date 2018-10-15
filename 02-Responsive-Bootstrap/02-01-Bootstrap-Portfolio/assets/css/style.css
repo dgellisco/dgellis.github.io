@@ -1,14 +1,13 @@
-html, body {
+/* html, body {
     height: 100%;
-}
+} */
 
 body {
     /* background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg); */
     background-image: url(../images/backgroundflipped.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
-    
+    background-attachment: fixed;   
 }
 
 .navbar-col {
@@ -163,13 +162,13 @@ body {
 @media screen and (max-width: 576px) {
 
     body {
+        /* background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg); */
         background-image: url(../images/backgroundflippedmob.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed;
+        background-attachment: fixed;   
     }
-    
-
+  
     .content-portfolio .content-portfolio-card {
         margin: 0 auto;
         margin-bottom: 30px;
