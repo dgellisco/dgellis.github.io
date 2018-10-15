@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     background: url(../images/14468744_10154050295427153_2710629823688653493_o.jpg);
     background-repeat: no-repeat;
@@ -119,6 +123,11 @@ body {
     text-decoration: line-through;
 }
 
+.content-background-container {
+    height: 100%;
+    width: auto;
+}
+
 
 @media screen and (max-width: 768px) {
     
@@ -169,4 +178,3 @@ body {
         width: 100%;
         bottom: 0%;
     }
-    
