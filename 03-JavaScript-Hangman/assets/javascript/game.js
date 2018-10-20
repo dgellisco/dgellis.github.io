@@ -84,13 +84,13 @@ function pageLoad() {
         // alert("***POLICE ALERT " + startDate + " " + startTime() + "***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
 
         // Game introduction
-        alert("***POLICE ALERT " + startDate + " ***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
+        alert("***POLICE ALERT " + startDate + " ***\n\nNotorious thief 'Carmen Sandiego' has just stolen the Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
         userName = prompt("You!\n\nDetective!\n\nWhat's your name?\n");
         if (userName == "") {
             userName = "Rookie Detective";
             }
         document.getElementById("username").innerHTML = userName;
-        alert("Alright, " + userName + ", I'm putting you on this case.\n\nThis will be a challenging assignment - you'll need all of your skill, determination, and alphabetical keys on your QWERTY keyboard to complete this one (sorry, mobile users).");
+        alert("Alright, " + userName + ", I'm putting you on this case.\n\nThis will be a challenging assignment - you'll need all of your skill, determination, and alphabetical keys on your QWERTY keyboard to complete this one (sorry, no mobile users).");
         alert("Reports suggest that Carmen might be planning to steal more national treasures from other countries around the globe.\n\n" + userName + ", use your detective skills to interview witnesses, unravel clues, and find out where she's going - before she strikes again!\n\nI wonder... where in the world is Carmen Sandiego?");    
         }
         ,1000);
@@ -192,7 +192,7 @@ function checkHints(){
     else {
         document.getElementById("hintbutton").className = "btn btn-secondary"; 
         document.getElementById("hintbutton-text").style.fontStyle = "italic";
-        document.getElementById("hintbutton-text").innerHTML = "No more eye witness reports available at this point in time.";
+        document.getElementById("hintbutton-text").innerHTML = "No more eye witness reports available at this time.";
     }
 }
 
