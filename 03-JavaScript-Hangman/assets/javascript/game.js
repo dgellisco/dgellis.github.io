@@ -64,25 +64,27 @@ function pageLoad() {
         // Capture date
         let startDate = new Date().toLocaleDateString()
 
-        // Capture time
-        function startTime(){
-            var today = new Date();
-            var todayString;
+        // // Capture time
+        // function startTime(){
+        //     var today = new Date();
+        //     var todayString;
 
-            today.setDate(today.getDate() + 20);
+        //     today.setDate(today.getDate() + 20);
 
-            todayString = ('0' + today.getDate()).slice(-2) + '/'
-             + ('0' + (today.getMonth()+1)).slice(-2) + '/'
-             + today.getFullYear();
+        //     todayString = ('0' + today.getDate()).slice(-2) + '/'
+        //      + ('0' + (today.getMonth()+1)).slice(-2) + '/'
+        //      + today.getFullYear();
 
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds(); 
-            return [ h, m, s ].join(':');
-        }
+        //     var h = today.getHours();
+        //     var m = today.getMinutes();
+        //     var s = today.getSeconds(); 
+        //     return [ h, m, s ].join(':');
+        // }
+
+        // alert("***POLICE ALERT " + startDate + " " + startTime() + "***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
 
         // Game introduction
-        alert("***POLICE ALERT " + startDate + " " + startTime() + "***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
+        alert("***POLICE ALERT " + startDate + " ***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
         userName = prompt("You!\n\nDetective!\n\nWhat's your name?\n");
         if (userName == "") {
             userName = "Rookie Detective";
