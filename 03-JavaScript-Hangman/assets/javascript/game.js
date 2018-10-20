@@ -6,31 +6,27 @@ var wordsArray = [
 ];
 
 var hintsAustralia = [
-    "Sometimes, national icons are not monuments or artifacts, but native animals.  Wherever she was going, she said it had some really cool and strange ones!",
-    "When she boarded the plane, it was freezing and the dead of winter - which is why I thought it was very strange she was wearing boardshorts and a tanktop.",
+    "While getting on her plane, Carmen was talking about spending Christmas in a swimsuit on the beach.  Honestly, she must be mad.  Christmas is freezing!",
+    "Sometimes, national icons are not monuments or artifacts, but native animals.  Wherever she was going, she was intent to take one of our... ahem, one of this country's national treasures home with her.",
     "She called it the land down under.  I don't know what that meant, but I'm pretty sure it wasn't a Stranger Things reference...",
-    "<NO MORE HINTS>"
 ];
 
 var hintsCanada = [
     "I noticed Carmen was practicing her French as she boarded the plane, but I'm certain she wasn't going to France...",
-    "Carmen loved pancakes, and a recent raid on her house uncovered cupboards full of empty maple syrup bottles.  Maybe she was planning a sweet heist up north.",
-    "Residents in the northern areas of this country leave their cars unlocked to offer an escape for pedestrians who might encounter Polar Bears.",
-    "<NO MORE HINTS>"
+    "Carmen loved pancakes, and a recent raid on her house uncovered cupboards full of empty maple syrup bottles.  Maybe she was planning a sweet heist up North.",
+    "Residents in the northern areas of this country leave their cars unlocked to offer an escape for pedestrians who might encounter Polar Bears.  Wow!  Sounds like the locals are friendly!",
 ];
 
 var hintsEgypt = [
     "Carmen said she was going somewhere very sandy, but I noticed she didn't pack a beach towel...",
-    "I think Carmen said she wanted to see her Mummy...  and that her Mummy was over 2,000 years old! Strange lady.",
+    "I think Carmen said she was going to pick up her Mummy...  and that her Mummy was over 2,000 years old! Strange lady.",
     "Carmen's going to Egypt.  She's in Egypt, dummy.",
-    "<NO MORE HINTS>"
 ];
 
 var hintsFrance = [
-    "Carmen said she hadn't visited since they stopped banning potatoes back in 1772.  She was pretty excited for a potato salad with her wine and cheese",
-    "Carmen loved art.  She said she was going to pick up a new painting to decorate her house - said she'd get it for a steal from a place called 'the Louvre'.",
-    "Interesting fact about this place - it used to be on the same time zone as England, but after being invaded in 1940 during WW2, Germany forced this country conform with Berlin time.  This change has never been reversed.",
-    "<NO MORE HINTS>"
+    "Carmen loved art.  She said she was going to pick up a new painting to decorate her house - said she'd get it for a steal from some place called 'the Louvre'.",
+    "Carmen said she hadn't visited since they unbanned potatoes back in 1772.  Well, maybe that's not true, but it's an interesting fact!",
+    "Oui.  You can do this.",
 ];
 
 var countriesSaved = [];
@@ -46,12 +42,15 @@ var wins = 0;
 var guessesRemaining;
 var guessesWrong;
 var guessesRight;
+var guessesMade = 0;
 
 var guessedLetters = [];
 var guessInput;
 
 var currentHint = "";
 var currentHints = "";
+var hintsThisRound;
+var hintsRemaining;
 
 var statusDisplay;
 var gameFinished;
@@ -89,8 +88,8 @@ function pageLoad() {
             userName = "Rookie Detective";
             }
         document.getElementById("username").innerHTML = userName;
-        alert("Alright, " + userName + ", I'm putting you on this case.\n\nThis will be a challenging assignment - you'll want all your skill, talent, determination, and keys of your keyboard to complete this one.");
-        alert("Reports suggest that Carmen might be planning to steal another national icon, but we have no idea which country she'll strike next.\n\nUse your detective skills to interview witnesses, uncover clues, and find her - before she strikes again!\n\nBut... where in the world is Carmen Sandiego?");    
+        alert("Alright, " + userName + ", I'm putting you on this case.\n\nThis will be a challenging assignment - you'll need all of your skill, determination, and alphabetical keys on your QWERTY keyboard to complete this one.");
+        alert("Reports suggest that Carmen might be planning to steal more national treasures from other countries around the globe.\n\n" + userName + ", use your detective skills to interview witnesses, unravel clues, and find out where she's going - before she strikes again!\n\nI wonder... where in the world is Carmen Sandiego?");    
         }
         ,1000);
     // Fade in game
@@ -128,8 +127,11 @@ function newLevel() {
         guessedLetters = [];
         guessesWrong = 0;
         guessesRight = 0;
+        guessesMade = 0;
         currentHint = "";
         currentHints = "";
+        hintsThisRound = 0;
+        hintsRemaining = hintsAustralia.length;
         document.getElementById("currenthints").innerHTML = "";
         // pick a random word from wordsArray
         currentWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
@@ -171,10 +173,78 @@ function updateDisplay() {
     // If currentWord is complete, display win screen
 
     // If guessesRemaining = 0, display lose screen, change status to gameFinished
+    checkHints();
 }
 
+function checkHints(){
+    if (hintsRemaining >= 1 && guessesWrong >= hintsThisRound) {
+        document.getElementById("hintbutton").className = "btn btn-primary"; 
+        document.getElementById("hintbutton-text").style.fontStyle = "normal";
+        document.getElementById("hintbutton-text").innerHTML = "Eyewitness reports available";
+    }
+    else if (hintsThisRound == 3) {
+        document.getElementById("hintbutton").className = "btn btn-secondary"; 
+        document.getElementById("hintbutton-text").style.fontStyle = "italic";
+        document.getElementById("hintbutton-text").innerHTML = "No more eye witness reports available at this location.  You're on your own now!";
+    }
+    else {
+        document.getElementById("hintbutton").className = "btn btn-secondary"; 
+        document.getElementById("hintbutton-text").style.fontStyle = "italic";
+        document.getElementById("hintbutton-text").innerHTML = "No more eye witness reports available at this point in time.";
+    }
+}
 
 function updateHints(){
+    checkHints();
+    console.log(hintsRemaining);
+    if (hintsRemaining >= 1 && guessesWrong >= hintsThisRound) {
+        
+        
+        if(currentWord == "AUSTRALIA" && hintsRemaining >= 1) {
+            currentHint = hintsAustralia[hintsThisRound];
+            hintsThisRound++;
+            hintsRemaining--;
+            addHint();
+        }
+        
+        else if(currentWord == "CANADA" && hintsRemaining >= 1) {
+            currentHint = hintsCanada[hintsThisRound];
+            hintsThisRound++;
+            hintsRemaining--;
+            addHint();
+        }
+        
+        else if(currentWord == "EGYPT" && hintsRemaining >= 1) {
+            currentHint = hintsEgypt[hintsThisRound];
+            hintsThisRound++;
+            hintsRemaining--;
+            addHint();
+        }
+        
+        else if(currentWord == "FRANCE" && hintsRemaining >= 1) {
+            currentHint = hintsFrance[hintsThisRound];
+            hintsThisRound++;
+            hintsRemaining--;
+            addHint();
+        }
+
+        else if (hintsThisRound == 3) {
+            document.getElementById("hintbutton").className = "btn btn-secondary"; 
+            document.getElementById("hintbutton-text").style.fontStyle = "italic";
+            document.getElementById("hintbutton-text").innerHTML = "No more eye witness reports available at this location.  You're on your own now!";
+        }
+
+        else {
+            document.getElementById("hintbutton").className = "btn btn-secondary"; 
+            document.getElementById("hintbutton-text").style.fontStyle = "italic";
+            document.getElementById("hintbutton-text").innerHTML = "No more eye witness reports available at this time.";
+        }
+        
+    }
+    checkHints();
+}
+
+function addHint(){
     currentHints += currentHint;
     console.log("currentHint = " + currentHint + " and currentHints = " + currentHints);
     currentHints += "<br><br>";
@@ -188,15 +258,16 @@ document.onkeyup = function(event) {
         // Accept key input
         console.log(levelFinished);
             if(levelFinished) {
-                document.getElementById("display-gamestatus").innerHTML = "Press Enter to start a new game";
-                console.log("Press enter to restart");
-                if(event.keyCode == 13) {
-                    console.log("Game Status: Game restarted");
-                    newLevel();
-                }
-                else {
-                    console.log("Press enter to restart");
-                }
+                document.getElementById("display-gamestatus").innerHTML = "Press Enter to continue the chase.";
+                // alert("Press Enter to continue the chase");
+                // newLevel();
+                // if(event.keyCode == 13) {
+                //     console.log("Game Status: Game restarted");
+                //     newLevel();
+                // }
+                // else {
+                //     console.log("Press enter to restart");
+                // }
             }
         
         if(levelFinished != true) {
@@ -248,6 +319,7 @@ function checkGuess() {
         else {
             guessesRemaining--;
             guessesWrong++;
+            guessesMade = guessesWrong + guessesRight;
             var statusDisplayArray = [
                 "This country does not contain the letter '" + guessInput + "'.  Try again.",
                 "Nice try, but the letter '" + guessInput + "' is incorrect.  Please try a different letter.",
@@ -256,25 +328,28 @@ function checkGuess() {
             statusDisplay = statusDisplayArray[Math.floor(Math.random() * statusDisplayArray.length)];
             document.getElementById("display-gamestatus").innerHTML = statusDisplay;
 
-            if(currentWord == "AUSTRALIA" && guessesWrong <= hintsAustralia.length) {
-                currentHint = hintsAustralia[guessesWrong - 1];
-                updateHints();
-            }
+            checkHints();
+            // updateHints();
+            // if(currentWord == "AUSTRALIA" && guessesWrong <= hintsAustralia.length && hintsThisRound <= guessesWrong) {
+            //     currentHint = hintsAustralia[guessesWrong - 1];
+            //     hintsThisRound++;
+            //     updateHints();
+            // }
             
-            else if(currentWord == "CANADA" && guessesWrong <= hintsCanada.length) {
-                currentHint = hintsCanada[guessesWrong - 1];
-                updateHints();
-            }
+            // else if(currentWord == "CANADA" && guessesWrong <= hintsCanada.length && hintsThisRound <= guessesWrong) {
+            //     currentHint = hintsCanada[guessesWrong - 1];
+            //     updateHints();
+            // }
             
-            else if(currentWord == "EGYPT" && guessesWrong <= hintsEgypt.length) {
-                currentHint = hintsEgypt[guessesWrong - 1];
-                updateHints();
-            }
+            // else if(currentWord == "EGYPT" && guessesWrong <= hintsEgypt.length && hintsThisRound <= guessesWrong) {
+            //     currentHint = hintsEgypt[guessesWrong - 1];
+            //     updateHints();
+            // }
 
-            else if(currentWord == "FRANCE" && guessesWrong <= hintsFrance.length) {
-                currentHint = hintsFrance[guessesWrong - 1];
-                updateHints();
-            }
+            // else if(currentWord == "FRANCE" && hintsRemaining >= 1) {
+            //     currentHint = hintsFrance[hintsThisRound];
+            //     updateHints();
+            // }
         }
     }
     // Condition: Already guessed letter
@@ -315,14 +390,25 @@ function levelWon() {
     // remove correct guess from array
     if(wordsArray.length == 1) {
         countriesSaved += wordsArray.indexOf(currentWord);
-        alert("Congratulations!  You not only foiled her plans to steal a national icon, but you were so fast that you caught her red-handed!\n\nShe's off to jail, and you're a hero" + userName + "!");
+        setTimeout(function() {
+            alert("Congratulations!  You not only foiled her plans to steal another national icon, but you were so fast that you caught her red-handed!\n\nShe's off to jail, and you're a hero, " + userName + "!");
+            },50);
+        
         gameWon()
     }
     else {
-        alert("Well done!  You thwarted her plan before she could steal a national icon!\n\nBut it looks like she's escaped capture for now.\n\nWhere could she be?");
         countriesSaved += wordsArray.indexOf(currentWord);
         var deleteIndex = wordsArray.indexOf(currentWord);
         wordsArray.splice(deleteIndex, 1);
+        setTimeout(function() {
+            alert("Well done!  You thwarted her plans before she could steal another national icon!\n\nBut she's escaped capture for now.\n\nI wonder... where in the world is Carmen Sandiego?");
+            alert("You pick up some more fresh leads - the chase is back on!");
+            },50);
+        setTimeout(function() {
+            
+            },60);
+        newLevel();
+        
     }
     
     // add to score
@@ -341,8 +427,9 @@ function gameWon () {
         countriesSavedDisplay += ", and ";
         countriesSavedDisplay += countriesSaved[0];
         alert("You did it, " + userName + "!\n\nYou captured Carmen Sandiego, and recovered what was stolen!");
-        alert("The countries of " + countriesSavedDisplay + " send their gratitude!");
-        },2000);
+        // alert("The countries of " + countriesSavedDisplay + " send their gratitude!");
+        alert("The countries of NULLLLLLLL ITS TOO LATE TO CODE send their gratitude!");
+        },500);
     gameFinished = true;
 }
 
