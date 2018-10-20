@@ -403,7 +403,7 @@ function levelWon() {
         var deleteIndex = wordsArray.indexOf(currentWord);
         wordsArray.splice(deleteIndex, 1);
         setTimeout(function() {
-            alert("Well done!  You thwarted her plans before she could steal another national icon!\n\nBefore you can arrest her, she evades capture and flees the country.\n\nThe case goes cold, until...");
+            alert("Well done!  You thwarted her plans before she could steal another national icon!\n\nBut shes escaped capture for now, and appears to have left the country.\n\nThe case goes cold, until...");
             alert("You pick up some fresh leads - the chase is back on!");
             },50);
         setTimeout(function() {
