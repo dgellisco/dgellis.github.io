@@ -90,7 +90,7 @@ function pageLoad() {
             userName = "Rookie Detective";
             }
         document.getElementById("username").innerHTML = userName;
-        alert("Alright, " + userName + ", I'm putting you on this case.\n\nThis will be a challenging assignment - you'll need all of your skill, determination, and alphabetical keys on your QWERTY keyboard to complete this one.");
+        alert("Alright, " + userName + ", I'm putting you on this case.\n\nThis will be a challenging assignment - you'll need all of your skill, determination, and alphabetical keys on your QWERTY keyboard to complete this one (sorry, mobile users).");
         alert("Reports suggest that Carmen might be planning to steal more national treasures from other countries around the globe.\n\n" + userName + ", use your detective skills to interview witnesses, unravel clues, and find out where she's going - before she strikes again!\n\nI wonder... where in the world is Carmen Sandiego?");    
         }
         ,1000);
