@@ -83,7 +83,7 @@ function pageLoad() {
         }
 
         // Game introduction
-        alert("***POLICE ALERT " + startDate + " " + startTime() + "***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!***\n\n***She's fled the scene, and was last seen boarding a plane at the International Airport.***\n\n***All police, please respond!***");
+        alert("***POLICE ALERT " + startDate + " " + startTime() + "***\n\nNotorious thief 'Carmen Sandiego' has just stolen our beloved Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
         userName = prompt("You!\n\nDetective!\n\nWhat's your name?\n");
         if (userName == "") {
             userName = "Rookie Detective";
