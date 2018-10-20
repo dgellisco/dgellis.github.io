@@ -315,9 +315,11 @@ function levelWon() {
     // remove correct guess from array
     if(wordsArray.length == 1) {
         countriesSaved += wordsArray.indexOf(currentWord);
+        alert("Congratulations!  You not only foiled her plans to steal a national icon, but you were so fast that you caught her red-handed!\n\nShe's off to jail, and you're a hero" + userName + "!");
         gameWon()
     }
     else {
+        alert("Well done!  You thwarted her plan before she could steal a national icon!\n\nBut it looks like she's escaped capture for now.\n\nWhere could she be?");
         countriesSaved += wordsArray.indexOf(currentWord);
         var deleteIndex = wordsArray.indexOf(currentWord);
         wordsArray.splice(deleteIndex, 1);
