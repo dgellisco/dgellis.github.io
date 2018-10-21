@@ -61,6 +61,7 @@ var levelFinished;
 function pageLoad() {
     setTimeout(function () {
         let startDate = new Date().toLocaleDateString()
+        alert("This is a game that I created to practice my coding skills.\n\nIn this game, you get to be a hero detective (if you prove worthy!).  Have fun :)\n\n-David Ellis");
         alert("***POLICE ALERT " + startDate + " ***\n\nNotorious thief 'Carmen Sandiego' has just stolen the Declaration Of Independence!\n\nShe's fled the scene, and was last seen boarding a plane at the International Airport.\n\nAll police, please respond!");
         userName = prompt("You!\n\nDetective!\n\nWhat's your name?\n");
         if (userName == "") {
