@@ -54,6 +54,7 @@
                             <div>Letters already guessed: <span id="guessedletters"></span></div>
                             <div>Guesses wrong this round: <span id="guesseswrong"></span></div>
                             <br>
+                            
                             <div class="content-subheaders">Game Stats:</div>
                             <div>Countries saved: <span id="wins"></span></div>
                             <div>Total guesses remaining: <span id="guessesremaining"></span></div>
@@ -66,10 +67,10 @@
                     <div class="card" style="width: 100%">
                         <div class="card-body card-hint">
                             <h3 class="card-title">Eyewitness Reports</h3>
-                            <button type="button" class="btn btn-primary" id="hintbutton" onclick="updateHints()">Interview Witnesses</button><span>  </span><span id="hintbutton-text"></span>
+                            <button type="button" class="btn btn-primary" id="hintbutton" onclick="addHint()">Interview Witnesses</button><span>  </span><span id="hintbutton-text"></span>
                             <br>
                             <br>
-                            <p id="currenthints"></p>
+                            <p id="display-currenthints"></p>
                         </div>
                     </div>
                 </div>

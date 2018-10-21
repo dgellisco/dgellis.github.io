@@ -17,6 +17,7 @@ body {
 
 .card {
     margin: 5px 5px 5px 5px;
+    opacity: 0.85;
 }
 
 .content-subheaders {
@@ -51,8 +52,4 @@ body {
 
 #guessprogress {
     text-align: center;
-}
-
-.card {
-    opacity: 0.85;
 }
