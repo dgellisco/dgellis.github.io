@@ -272,7 +272,7 @@ function gameWon() {
     setTimeout(function () {
         alert("Congratulations!  You not only foiled her plans to steal another national icon, but you were so fast that you caught her red-handed!\n\nShe's off to jail, and you're a hero, " + userName + "!");
         alert("You recover all that was stolen, and the countries you saved send their gratitude!  Well done, " + userName + "!");
-        alert("Click OK to start a new game!");
+        alert("The countries of NULL ITS TOO LATE TO CODE send their gratitude!\n\nClick OK to do it all over again.");
         newGame();
     }, 60);
 }
