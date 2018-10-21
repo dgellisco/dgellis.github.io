@@ -117,12 +117,19 @@ function newLevel() {
     updateDisplay();
     setTimeout (function () {
         addHint();
-    }, 4000);
+    }, 2800);
     updateDisplay();
 }
 
 // ** UPDATE DISPLAY
 function updateDisplay() {
+    console.log("hintsRemaining: " + hintsRemaining);
+    console.log("hintsThisRound: " + hintsThisRound);
+    console.log();
+    console.log();
+    console.log();
+    console.log();
+    console.log();
     // ** Update guess progress
     var guessProgressDisplay = guessProgress.join(" ");
     document.getElementById("guessprogress").innerHTML = guessProgressDisplay;
@@ -152,7 +159,7 @@ function updateDisplay() {
 
 // ** ADD HINT
 function addHint() {
-    if (hintsRemaining >= 1 && guessesWrong + 1 >= hintsThisRound) {
+    if (hintsRemaining >= 1 && guessesWrong >= hintsThisRound) {
         // ** Added dynamic functionality.  Number of hints per country can vary and the program stil works.
         currentHint = WordsHintsObj[currentWordIndex].hints[hintsThisRound];
         hintsThisRound++;
@@ -252,7 +259,7 @@ function levelWon() {
             statusDisplay = statusDisplayArray[Math.floor(Math.random() * statusDisplayArray.length)];
             alert(statusDisplay);
             alert("You pick up some fresh leads!  Find Carmen Sandiego!");
-            newGame();
+            newLevel();
         }, 60);
     }
     wins++;
