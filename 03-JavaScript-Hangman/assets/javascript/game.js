@@ -26,7 +26,7 @@ var WordsHintsObj = [{
         id: "FRANCE",
         hints: [
             "Carmen loved art.  She said she was going to pick up a new painting to decorate her house - said she'd get it for a steal from some place called 'the Louvre'.",
-            "Carmen said she hadn't visited since they unbanned potatoes back in 1772.  Well, maybe that's not true, but it's an interesting fact!",
+            "Carmen said she was going to the city of love.",
             "Oui.  You can do this.",
         ]
     },
