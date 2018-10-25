@@ -1,0 +1,69 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    color: white;
+}
+
+/* TEXT */
+#title-game {
+    text-align: right;
+}
+
+.warriors {
+    border-style: solid;
+    border-width: 2px;
+    border-color:#ffffff;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    float: left;
+    margin: 10px;
+}
+
+h3 {
+    clear: left;
+}
+
+.warrior-id {
+    position: absolute;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+img {
+    height: 200px;
+    width: auto;
+}
+
+.card-header, .card-footer {
+    padding: 0px;
+    color: black;
+}
+
+.warrior-picture {
+    position: absolute;
+
+}
+
+.warrior-hp {
+    position: absolute;
+    text-align: center;
+    bottom: 5%;
+}
+
+.warrior-ap {
+    position: absolute;
+}
+
+.warrior-cp {
+    position: absolute;
+}
