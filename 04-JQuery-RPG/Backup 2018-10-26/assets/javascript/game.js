@@ -85,10 +85,7 @@ var statusDisplay;
 
 
 // INITIALIZE GAME
-$(document).on("click", "#btn-start", function() {
-    newGame();
-});
-
+newGame();
 $(".warriors").css("cursor", "pointer");
 
 
@@ -132,15 +129,6 @@ function newGame() {
     $("#warriors-attacker").empty();
     $("#warriors-defender").empty();
 
-    $(".container-game").empty();
-    // WARRIOR SELECT
-    $('<div class="container-stage" id="warriors-available"></div>\
-    <div class="container-stage card text-center card-text-status">\
-      <div class="card-body">\
-        <p id="game-status"></p>\
-      </div>\
-    </div>').appendTo(".container-game");
-
     $("#btn-attack-div").html('<button id="btn-attack">Attack</button><br><br><br><br><p class="damage-indicator" id="damage-given-indicator"></p><p class="damage-indicator" id="damage-taken-indicator"></p>');
     $("#btn-attack-div").css("display", "none");
     
@@ -162,7 +150,7 @@ function newGame() {
     });
 
     // UPDATE GAME STATUS
-    $("#game-status").html("Select your hero");
+    $("#game-status").html("Select a candidate.");
     console.log("chooseWarrior = " + chooseWarrior + " / chooseEnemy = " + chooseEnemy + " / roundStarted = " + roundStarted);
     console.log("~~~~ newGame() executed succesfully");
 }
@@ -179,15 +167,6 @@ function newWarrior() {
     console.log("---- newWarrior() started");
 
     $("#warriors-available").empty();
-
-    $(".container-game").empty();
-    // WARRIOR SELECT
-    $('<div class="container-stage" id="warriors-enemies"></div>\
-    <div class="container-stage card text-center card-text-status">\
-      <div class="card-body">\
-        <p id="game-status"></p>\
-      </div>\
-    </div>').appendTo(".container-game");
 
     $(WarriorsObj).each(function (index) {
         var cardTemplate = '<span class="warriors card text-center bg-light" id="warrior' + WarriorsObj[index].id + '">    <div class="card-header">      <span id="warrior' + WarriorsObj[index].id + '-name">' +    WarriorsObj[index].name + '</span>    </div>    <div class="card-body">        ' + WarriorsObj[index].img +   '</div>    <div class="card-footer text-muted">        HP: ' + WarriorsObj[index].hp + '        <span id="warrior' + WarriorsObj[index].id + '-hp"></span>    </div></span>';
@@ -214,8 +193,6 @@ function newWarrior() {
     });
     chooseWarrior = false;
     chooseEnemy = true;
-    // UPDATE GAME STATUS
-    $("#game-status").html("Select your first opponent");
     console.log("chooseWarrior = " + chooseWarrior + " / chooseEnemy = " + chooseEnemy + " / roundStarted = " + roundStarted);
     console.log("~~~~ newWarrior() executed succesfully");
 }
@@ -238,21 +215,6 @@ function newEnemy() {
     console.log("heroIndex is " + heroIndex);
     console.log("hero name " + WarriorsObj[heroIndex].name);
     console.log("hero ID " + WarriorsObj[heroIndex].id);
-
-    $(".container-game").empty();
-    // BATTLE SCREEN
-    $('      <div class="container-stage container-battle battle-warrior" id="warriors-attacker"></div>\
-    <button type="button" class="btn btn-primary container-stage container-battle" id="btn-attack">Attack</button>\
-    <button type="button" class="btn btn-primary container-stage container-battle" id="btn-new-rnd">Choose Your Next Opponent</button>\
-    <div class="container-stage container-battle battle-warrior" id="warriors-defender"></div>\
-    <div class="container-stage card text-center card-text-status">\
-      <div class="card-body">\
-        <p id="game-status">TEST</p>\
-      </div>\
-    </div>').appendTo(".container-game");
-
-    $("#btn-attack").show();
-    $("#btn-new-rnd").hide();
 
     $(WarriorsObj).each(function (index) {
         var cardTemplate = '<span class="warriors card text-center bg-light" id="warrior' + WarriorsObj[index].id + '">    <div class="card-header">      <span id="warrior' + WarriorsObj[index].id + '-name">' +    WarriorsObj[index].name + '</span>    </div>    <div class="card-body">        ' + WarriorsObj[index].img +   '</div>    <div class="card-footer text-muted">        HP: ' + WarriorsObj[index].hp + '        <span id="warrior' + WarriorsObj[index].id + '-hp"></span>    </div></span>';
@@ -302,13 +264,11 @@ function newBattle(){
             $("#damage-given-indicator").html("Attacked for " + heroDamage + " damage");
             WarriorsObj[enemyIndex].hp = WarriorsObj[enemyIndex].hp - heroDamage;
             console.log("heroDamage is " + heroDamage + " / enemy HP is " + WarriorsObj[enemyIndex].hp);
-            $("#game-status").html("You attack for " + heroDamage + " damage");
-            
 
             // IF THEY DIE
             if (WarriorsObj[enemyIndex].hp <= 0) {
                 setTimeout(function(){
-                    $("#game-status").append("<br><br>Opponent vanquished - nice one!");
+                    alert("Opponent defeated.  Nice one!");
                 }, 800);
 
                 WarriorsObj.splice($.inArray(WarriorsObj[enemyIndex], WarriorsObj), 1);
@@ -324,14 +284,8 @@ function newBattle(){
                 $("#warriors-defender").empty();
                 if (heroIndex > - 1) {
                     setTimeout(function(){
-                        $("#game-status").append("<br><br>Get ready for another round!");
-                    }, 1600);
-                    $("#btn-attack").hide();
-                    $("#btn-new-rnd").show();
-                    $(document).on("click", "#btn-new-rnd", function() {
-                        newEnemy();
-                    });
-
+                        alert("Choose a new enemy");
+                    }, 800);
                 }
                 else {
                     gameWon();
@@ -357,24 +311,15 @@ function newBattle(){
             $("#damage-taken-indicator").html("Opponent hit back for " + WarriorsObj[enemyIndex].cp + " damage");
             WarriorsObj[heroIndex].hp = WarriorsObj[heroIndex].hp - WarriorsObj[enemyIndex].cp;
             console.log("enemyDamage is " + WarriorsObj[enemyIndex].cp + " / your HP is " + WarriorsObj[heroIndex].hp);
-            setTimeout(function(){
-                $("#game-status").append("<br><br>Opponent attacked back for " + WarriorsObj[enemyIndex].cp + " damage");
-            }, 800);
 
                 // IF YOU DIE FROM COUNTER-ATTACK
                 if (WarriorsObj[heroIndex].hp <= 0) {
                     $("#warriors-attacker").empty();
                     roundFinished = true;
                     setTimeout(function(){
-                        $("#game-status").append("<br><br>You were defeated - you lose!");
+                        alert("You lose!");
                         location.reload();
-                    }, 1600);
-                }
-                else {
-                    setTimeout(function(){
-                        $("#game-status").append('<br><br>Click "Attack" to continue');
-                    }, 1600);
-                    
+                    }, 800);
                 }
             }
         }
@@ -400,7 +345,7 @@ function gameWon() {
     alert("You just won!");
     setTimeout(function(){
         alert("Choose a new enemy");
-    }, 1200);
+    }, 800);
 }
 
 // Game On: Attack enemy on click

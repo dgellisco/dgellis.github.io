@@ -12,35 +12,73 @@
 
     <!-- Javascript jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- My JavaScript -->
-    <script src="assets/javascript/game.js"></script>
+  
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 id="title-game">US Election Game</h1>
-        <div id="warriors-available">
-          <!-- THIS IS WHERE THE HEROES GO INITIALLY -->
+
+  <div class="container-page container-fluid">
+    <div class="container-game container-fluid">
+
+      <div class="card text-center card-text-page">          
+        <div class="card-body">
+          <h3>Instructions</h3>
+          <br>
+          <p>Select your candidate to run for presidency.  You will face off against your opponents for the ultimate prize.</p>
+          <p>Throughout your electoral campaign, your power will constantly build (your attack strength will increase every round).</p>
+          <p>Luckily, your opponents lack substance, and their attacks will always do the same amount of damage.  Use this to your advantage.</p>
+          <p>Some opponents are heavy hitters.  Be sure to face off against these opponents last, so that you can defeat them quickly before taking too much damage.</p>
+          <p>Start off by challenging weaker opponents, and work on building up your strength over the course of the game.</p>
+          <p>Good luck, have fun, and don't play fair!</p>
+          <br>
+          <button type="button" class="btn btn-primary" id="btn-start">Click To Start</button>
         </div>
-        <h3>Your Hero</h3>
-        <div id="warriors-attacker"></div>
-        <h3>Current Nemesis</h3>
-        <div id="warriors-defender"></div>
-        <h3>Opponents Remanining</h3>
-        <div id="warriors-enemies"></div>
-        <button id="btn-attack">Attack</button>
-        <div id="game-status"></div>
-        <h3>Instructions</h3>
-        <p>Each candidate has a set number of hits points.  Select your candidate to run for presidency.</p>
-        <p>When battling opponents, your attacks will become more and more powerful after each engagement.  Luckily, your opponent's attack will always cause the same amount of damage to you.</p>
-        <p>To win, keep on building your attack value while sustaining the least amount of damage.</p>
       </div>
+
+      
+
     </div>
   </div>
 
 
+  <!-- INSTRUCTIONS -->
+      <!-- <div class="card text-center card-text-page">          
+        <div class="card-body">
+          <h3>Instructions</h3>
+          <br>
+          <p>Select your candidate to run for presidency.  You will face off against your opponents for the ultimate prize.</p>
+          <p>Throughout your electoral campaign, your power will constantly build (your attack strength will increase every round).</p>
+          <p>Luckily, your opponents lack substance, and their attacks will always do the same amount of damage.  Use this to your advantage.</p>
+          <p>Some opponents are heavy hitters.  Be sure to face off against these opponents last, so that you can defeat them quickly before taking too much damage.</p>
+          <p>Start off by challenging weaker opponents, and work on building up your strength over the course of the game.</p>
+          <p>Good luck, have fun, and don't play fair!</p>
+          <br>
+          <button type="button" class="btn btn-primary btn-start">Click To Start</button>
+        </div>
+      </div> -->
+
+    <!-- SELECT CHARACTER -->
+      <!-- <div class="container-stage" id="warriors-available"></div>
+      <div class="container-stage card text-center card-text-status">
+        <div class="card-body">
+          <p id="game-status"></p>
+        </div>
+      </div> -->
+  
+      <!-- BATTLE SCREEN -->
+      <!-- <div class="container-stage container-battle battle-warrior" id="warriors-attacker"></div>
+      <button type="button" class="btn btn-primary container-stage container-battle" id="btn-attack">Attack</button>
+      <div class="container-stage container-battle battle-warrior" id="warriors-defender"></div>
+      <div class="container-stage card text-center card-text-status">
+        <div class="card-body">
+          <p id="game-status">TEST</p>
+        </div>
+      </div> -->
+
+
+
+<!-- My JavaScript -->
+<script src="assets/javascript/game.js"></script>
 
 </body>
 

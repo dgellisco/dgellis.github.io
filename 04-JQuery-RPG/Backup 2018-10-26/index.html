@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Election Game</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Javascript jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="title-game">US Election Game</h1>
+        <div id="warriors-available">
+          <!-- THIS IS WHERE THE HEROES GO INITIALLY -->
+        </div>
+      </div>
+
+        
+          <div class="col-md-5">
+            <h3 class="warriors-attacker-title">Your Hero</h3>
+            <div id="warriors-attacker" class="warriors-attacker"></div>
+          </div>
+          <div class="col-md-2">
+            <span id="btn-attack-div"></span>
+          </div>
+          <div class="col-md-5">
+            <h3 class="warriors-defender">Current Nemesis</h3>
+            <div id="warriors-defender" class="warriors-defender"></div>
+          </div>
+
+          <div class="col-md-12">
+            <h3>Opponents Remanining</h3>
+            <div id="warriors-enemies"></div>
+          </div>
+        
+
+        <div class="row">
+          <div class="col-md-12">
+            <div id="game-status"></div>
+            <h3>Instructions</h3>
+            <p>Each candidate has a set number of hits points.  Select your candidate to run for presidency.</p>
+            <p>When battling opponents, your attacks will become more and more powerful after each engagement.  Luckily, your opponent's attack will always cause the same amount of damage to you.</p>
+            <p>To win, keep on building your attack value while sustaining the least amount of damage.</p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+
+<!-- My JavaScript -->
+<script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
+
+
+
