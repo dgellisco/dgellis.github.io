@@ -54,15 +54,7 @@ body {
     margin: 0 auto;
 }
 
-.card-text-status {
-    background: rgba(255,255,255,0.2);
-    width: fit-content;
-    height: fit-content;
-    padding: 20px 50px 20px 50px;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
+
 
 .container-stage {
     margin: 0 auto;
@@ -119,22 +111,20 @@ h3 {
     position: relative;
     width: fit-content;
     height: fit-content;
-    float: left;
-    margin: 10px;
+    /* float: left; */
+    margin: 0 auto;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
 }
 
-.warriors-attacker {
-    float: right;
-    text-align: right;
+#warrior-attacker {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.warriors-attacker-title {
-    clear: both;
-    text-align: right;
-}
-
-.warriors-defender {
-
+#warrior-defender {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 h3 {
@@ -143,11 +133,13 @@ h3 {
 
 #btn-attack, #btn-new-rnd {
     margin: 0 auto;
-    position: absolute;
+    /* margin-top: 20px; */
+    display: block;
+    /* position: absolute;
     top: 80%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 .damage-indicator {
@@ -196,4 +188,14 @@ img {
 
 .warrior-cp {
     position: absolute;
+}
+
+.card-text-status {
+    background: rgba(255,255,255,0.2);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px 50px 20px 50px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
