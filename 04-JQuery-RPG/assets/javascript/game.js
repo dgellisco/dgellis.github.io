@@ -1,3 +1,11 @@
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+    $('#iframeAudio').remove()
+    }
+    else{
+    $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+    }
+
 var WarriorsObj = [{
         id: "0",
         name: "George W. Bush",
@@ -14,8 +22,8 @@ var WarriorsObj = [{
     {
         id: "1",
         name: "Hillary Clinton",
-        hp: 120,
-        ap: 6,
+        hp: 160,
+        ap: 8,
         cp: 15,
         phrases: [
             "phrase1",
@@ -27,9 +35,9 @@ var WarriorsObj = [{
     {
         id: "2",
         name: "Barack Obama",
-        hp: 140,
-        ap: 8,
-        cp: 20,
+        hp: 180,
+        ap: 10,
+        cp: 18,
         phrases: [
             "phrase1",
             "phrase2",
@@ -40,9 +48,9 @@ var WarriorsObj = [{
     {
         id: "3",
         name: "Donald Trump",
-        hp: 180,
-        ap: 10,
-        cp: 25,
+        hp: 240,
+        ap: 8,
+        cp: 20,
         phrases: [
             "This is going to be HUGE!",
             "By God, I will make America great again!",
@@ -52,7 +60,7 @@ var WarriorsObj = [{
     {
         id: "4",
         name: "Vladimir Putin",
-        hp: 50,
+        hp: 200,
         ap: 4,
         cp: 10,
         phrases: [
@@ -207,7 +215,12 @@ function newWarrior() {
     chooseEnemy = true;
 
     // UPDATE GAME STATUS
-    $("#game-status").html("Select your opponent.");
+    if (WarriorsObj.length == 2) {
+        $("#game-status").html("Defeat the enemy!");    
+    }
+    else {
+        $("#game-status").html("Select your opponent.");
+    }
     console.log("~~~~ newWarrior() executed succesfully");
     $('.warriors').css('cursor', 'pointer');
 }
@@ -327,12 +340,12 @@ function newBattle(){
                 }
                 else if (WarriorsObj.length == 2) {
                     // setTimeout(function(){
-                        $("#game-status").append("<br><br>A secret challenger has entered the arena!");
+                        $("#game-status").append("<br><br>Congratulations - you are the president!");
                         $("#game-status").append('<br><br>');
                     // }, 800);
                     $("#btn-attack").hide();
                     $("#btn-new-rnd").show();
-                    $("#btn-new-rnd").html("Reveal The Secret Final Opponent");
+                    $("#btn-new-rnd").html("Defend America!");
                     $(document).on("click", "#btn-new-rnd", function() {
                         newWarrior();
                         roundStarted = false;
@@ -341,7 +354,12 @@ function newBattle(){
                 }
                 else {
                 // setTimeout(function(){
-                    $("#game-status").append("<br><br>Congratulations - you win!");
+                    if (WarriorsObj[heroIndex].name == "Hillary Clinton") {
+                        $("#game-status").append("<br><br>Congratulations, Mrs. President!  You are victorious!");
+                    }
+                    else {
+                        $("#game-status").append("<br><br>Congratulations, Mr. President!  You are victorious!");
+                    }
                     // }, 800);
                     $("#btn-attack").hide();
                     $("#btn-new-rnd").show();
