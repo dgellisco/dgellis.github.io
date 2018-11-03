@@ -15,6 +15,22 @@ body {
     color: white;
     font-size: 22px;
     font-family: 'Happy Monkey', cursive;
+    text-align: center;
+    /* margin: 0 auto; */
+    position: relative;
+}
+
+h3 {
+    vertical-align: center;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+}
+
+img {
+    max-width: 100%;
+    max-height: auto;
 }
 
 .card {

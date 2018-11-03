@@ -11,7 +11,7 @@ var countdownTimer;
 var questionsObj = [
     {
         id: "Step Brothers (2008)",
-        hint: "That's so funny the first time I heard that, I laughed so hard I fell off my dinosaur.",
+        hint: "That's so funny, the first time I heard that, I laughed so hard I fell off my dinosaur.",
         potentialAnswers: [
             "Zoolander (2001)",
             "Step Brothers (2008)",
@@ -60,10 +60,25 @@ var questionsObj = [
 ];
 
 
-// new game, reset global variables
 function newGame() {
+    $("h3").show();
+    $("p").hide();
+    $("span").hide();
+    setTimeout (function() {
+        setupNewGame();
+    }, 3000);
+    
+}
+
+// new game, reset global variables
+function setupNewGame() {
+    $("h3").hide();
+    $("p").show();
+    $("span").show();
+
     $("#countdown-timer-text").text("Time remaining: ");
     $("#hint-quotes").html('"<span id="hint"></span>"');
+    $("#hint-quotes").show();
     clearTimeout(countdownTimer);
     currentQuestion = 0;
     timerCount = 15;
@@ -82,6 +97,8 @@ function newRound() {
     $("#gif-space").empty();
     $("#game-status").empty();
     $("#round-answer").empty();
+
+    $(".countdown-timer-block").html('<span id="countdown-timer-text">Time remaining: </span><span id="countdown-timer"></span> seconds');
 
     pickedAnswer = false;
     startTimer();
@@ -143,6 +160,7 @@ function roundEnd() {
     clearTimeout(countdownTimer);
 
     $("#question-options").empty();
+    $(".countdown-timer-block").empty();
 
     $("#gif-space").html(questionsObj[currentQuestion].gif);
     $("#round-answer").html("The answer was " + questionsObj[currentQuestion].id + ".");
@@ -187,24 +205,25 @@ function scoreScreen() {
     $("#hint-quotes").empty();
     $("#game-status").empty();
     $("#round-answer").empty();
+    $("#hint-quotes").hide();
 
     if (score == 1) {
-        $("#game-status").html("You got " + score + " answer right out of " + questionsObj.length + " questions.\nYou're ");
+        $("#game-status").html("You got " + score + " answer right out of " + questionsObj.length + " questions.\n");
     }
     else {
-        $("#game-status").html("You got " + score + " answers right out of " + questionsObj.length + " questions.\nYou're ");
+        $("#game-status").html("You got " + score + " answers right out of " + questionsObj.length + " questions.\n");
     }
     
     if (score > 3) {
-        $("#game-status").append("an absolute champion!");
+        $("#game-status").append("You're an absolute champion!");
         $("#gif-space").html("<img src='assets/images/win_good.gif'>");
     }
     else if (score <= 3 && score > 1) {
-        $("#game-status").append("pretty cool!");
+        $("#game-status").append("You're pretty cool!");
         $("#gif-space").html("<img src='assets/images/win_ok.gif'>");
     }
     else {
-        $("#game-status").append("very bad at this game!  But that's ok, I guess.");
+        $("#game-status").append("You should probably go watch some of these movies.");
         $("#gif-space").html("<img src='assets/images/win_bad.gif'>");
     }
 
@@ -213,20 +232,17 @@ function scoreScreen() {
     newGameTimer();
     $("#countdown-timer-text").text("New Game Starts In ");
 
-    setTimeout(function() {
-        newGame();
-    }, 11000);
-
 }
 
 function newGameTimer() {
 
+    $(".countdown-timer-block").html('<span id="countdown-timer-text">Time remaining: </span><span id="countdown-timer"></span> seconds');
     // reset timer
     timerCount = 10;
     $("#countdown-timer").text(timerCount);
     
     // count timer down
-    countdownTimer = setInterval(function() {
+    countdownTimer = setInterval(function() {   
         timerCount--;
         $("#countdown-timer").text(timerCount);
         if (timerCount == 0) {
@@ -238,7 +254,7 @@ function newGameTimer() {
 
 
 $(document).on("click", "#new-game-btn", function() {
-
+    clearTimeout(countdownTimer);
     newGame();
         
 });
