@@ -174,7 +174,7 @@ function roundEnd() {
             currentQuestion++;
             newRound();
         }
-    }, 50);
+    }, 5000);
     
 
 }
