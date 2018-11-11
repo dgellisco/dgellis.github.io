@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GIPHY feels</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>GIPHY Feels</h1>
+      </div>
+    </div>
+
+    <!-- Rendered buttons will get dumped Here  -->
+    <div id="buttons-view" class="row col-md-12"></div>
+
+    <form id="emotion-form">
+      <label for="emotion-input">Add a emotion, Yo!</label>
+      <input type="text" id="emotion-input"><br>
+
+      <!-- Button triggers new emotion to be added -->
+      <input id="add-emotion" type="submit" value="Add a emotion, Yo!">
+    </form>
+    <iframe src="" allow="autoplay" style="display:none" id="backgroundmusic">
+      </iframe>
+      <button id="musicbuttonstopstart">Click To Stop/Start Music</button>
+      <button id="musicbuttonnextrack">Click To Change Tracks</button>
+      <span id="musiccurrentsongdisplay"></span>
+
+    <!-- emotions will get dumped here -->
+    
+    <div id="giphy-view"></div>
+    <div id="preloaded-giphy-view"></div>
+
+   
+  </div>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- My Javascript -->
+  <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+</body>
+
+</html>
