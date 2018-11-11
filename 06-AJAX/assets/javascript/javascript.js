@@ -15,7 +15,7 @@ var songs = [
     "assets/audio/Jim_James-Throwback_[For_Dave's_Enjoyment].mp3"
 ]
 renderButtons();
-musicStopStart();
+musicStartStop();
 
   
 // This function handles events where the add emotion button is clicked
@@ -44,8 +44,8 @@ $(document).on("click", ".gif-img", function() {
     toggleAnimate(this);
 });
 
-$(document).on("click", "#musicbuttonstopstart", function() {
-    musicStopStart();
+$(document).on("click", "#musicbuttonstartstop", function() {
+    musicStartStop();
 });
 
 $(document).on("click", "#musicbuttonnexttrack", function() {
@@ -95,7 +95,7 @@ function renderGIF() {
             for (i = 0; i < gifsPerClick; i++) {
             
                 var newGIPHY = $("<div>")
-                    .attr("class", "gif-div")
+                    .attr("class", "gif-div col-6")
                     .attr("id", "gif-div" + gifDIVNumber);
                 $("#giphy-view").prepend(newGIPHY);
 
@@ -150,7 +150,7 @@ function toggleAnimate(img) {
     $(img).attr("src", clickedImgURL);
 }
 
-function musicStopStart() {
+function musicStartStop() {
     if ($("#backgroundmusic").attr("src").indexOf("assets") > -1) {
         $("#backgroundmusic")
             .attr("src", "");
