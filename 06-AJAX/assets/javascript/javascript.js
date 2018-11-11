@@ -95,7 +95,7 @@ function renderGIF() {
             for (i = 0; i < gifsPerClick; i++) {
             
                 var newGIPHY = $("<div>")
-                    .attr("class", "gif-div col-6")
+                    .attr("class", "gif-div col-md-6")
                     .attr("id", "gif-div" + gifDIVNumber);
                 $("#giphy-view").prepend(newGIPHY);
 

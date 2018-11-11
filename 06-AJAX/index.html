@@ -21,24 +21,29 @@
       </div>
     </div>
 
+    <div class="row">
     <!-- Rendered buttons will get dumped Here  -->
-    <div id="buttons-view" class="row col-md-12"></div>
+      <div class="col-md-6">
+        <div id="buttons-view"></div>
+          <form id="emotion-form">
+            <label for="emotion-input">Add an emotion, Yo!</label>
+            <input id="add-emotion-form" type="text" required><br>
+            <!-- Button triggers new emotion to be added -->
+            <input id="add-emotion-btn" type="submit" value="Add a emotion, Yo!">
+          </form>
+      </div>
 
-    <form id="emotion-form">
-      <label for="emotion-input">Add a emotion, Yo!</label>
-      <input id="add-emotion-form" type="text" required><br>
+      <div class="col-md-6">
+        <iframe src="" allow="autoplay" style="display:none" id="backgroundmusic">
+          </iframe>
+          <button id="musicbuttonstartstop">Start/Stop Music</button>
+          <button id="musicbuttonnexttrack">Next Track</button>
+          <p id="musiccurrentsongdisplay"></p>
+      </div>
+      
+    </div>
 
-      <!-- Button triggers new emotion to be added -->
-      <input id="add-emotion-btn" type="submit" value="Add a emotion, Yo!">
-    </form>
-    <iframe src="" allow="autoplay" style="display:none" id="backgroundmusic">
-      </iframe>
-      <button id="musicbuttonstartstop">Start/Stop Music</button>
-      <button id="musicbuttonnexttrack">Next Track</button>
-      <p id="musiccurrentsongdisplay"></p>
-
-    <!-- emotions will get dumped here -->
-    
+    <!-- emotions will get dumped here :( :) :D :/ :? -->
     <div id="giphy-view" class="row"></div>
     <div id="preloaded-giphy-view"></div>
 
