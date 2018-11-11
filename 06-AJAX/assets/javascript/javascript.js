@@ -5,24 +5,38 @@ var gifsPerClick = 10;
 var gifDIVNumber = 0;
 var clickedBtn = "";
 var gifsToPreloadArray = [];
-var currentSong = "assets/audio/Jim_James-Throwback.mp3";
+var firstButtonClicked = 0;
+var currentSongIndex = 0;
+var songs = [
+    "assets/audio/Europe-The_Final_Countdown_[Requested_By_Alex].mp3",
+    "assets/audio/Modest_Mouse-Float_On_[DJ'd_For_Dane].mp3",
+    "assets/audio/Vitas-7th_Element_[Randomly_Selected_For_Marlow].mp3",
+    "assets/audio/Jukebox_The_Ghost-Fred_Astaire_[Recommended_By_Bri].mp3",
+    "assets/audio/Jim_James-Throwback_[For_Dave's_Enjoyment].mp3"
+]
 renderButtons();
+musicStopStart();
 
   
 // This function handles events where the add emotion button is clicked
-$("#add-emotion").on("click", function(event) {
+$("#add-emotion-btn").on("click", function(event) {
     event.preventDefault();
     // This line of code will grab the input from the textbox
-    var newEmotion = $("#emotion-input").val().trim();
-    // The emotion from the textbox is then added to our array
-    emotionsObj.push(newEmotion);
-    // Calling renderButtons which handles the processing of our emotion array
-    renderButtons();
+    var newEmotion = $("#add-emotion-form").val();
+    if (newEmotion.length != 0) {
+        newEmotion = $("#add-emotion-form").val().trim();
+        // The emotion from the textbox is then added to our array
+        emotionsObj.push(newEmotion);
+        $("#add-emotion-form").val("");
+        // Calling renderButtons which handles the processing of our emotion array
+        renderButtons();
+    }
 });
   
 // Adding click event listeners to all elements with a class of "emotion"
 $(document).on("click", ".emotion-btn", function() {
     clickedBtn = $(this).attr("data-name");
+    $("#giphy-view").empty();
     renderGIF();
 });
 
@@ -37,6 +51,7 @@ $(document).on("click", "#musicbuttonstopstart", function() {
 $(document).on("click", "#musicbuttonnexttrack", function() {
     musicNextTrack();
 });
+
 
 // Render buttons from emotions Obj
 function renderButtons() {
@@ -68,14 +83,14 @@ function renderGIF() {
   
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + clickedBtn;
 
-    console.log("queryURL is " + queryURL);
-
     $.ajax({
       url: queryURL,
       method: "GET"
     })
 
         .then(function(response) {
+
+            console.log(response);
 
             for (i = 0; i < gifsPerClick; i++) {
             
@@ -93,13 +108,11 @@ function renderGIF() {
                 $("#gif-div" + gifDIVNumber).prepend(newGIPHYRating);
 
                 // grab still gif and prepend to giphy view
-                console.log(response.data);
                 var imgUrl = response.data[i].images.original_still.url;
                 var newGIPHYImg = $("<img>")
                     .attr("src", imgUrl)
                     .attr("class", "gif-img")
                     .attr("alt", "giphy goes here");
-                console.log("newGIPHY is " + newGIPHY + " and newGIPHYImg is " + newGIPHYImg);
                 $("#gif-div" + gifDIVNumber).prepend(newGIPHYImg);
 
                 gifDIVNumber++;
@@ -127,15 +140,12 @@ function renderGIF() {
 
 
 function toggleAnimate(img) {
-    console.log("on function this is 2 " + img);
     var clickedImgURL = $(img).attr("src");
     if (clickedImgURL.search("_s.gif") != -1) {
         clickedImgURL = clickedImgURL.replace("_s.gif", ".gif");
-        console.log("clickedImgURL is " + clickedImgURL);
     }
     else {
         clickedImgURL = clickedImgURL.replace(".gif", "_s.gif");
-        console.log("clickedImgURL is " + clickedImgURL);
     }
     $(img).attr("src", clickedImgURL);
 }
@@ -144,23 +154,24 @@ function musicStopStart() {
     if ($("#backgroundmusic").attr("src").indexOf("assets") > -1) {
         $("#backgroundmusic")
             .attr("src", "");
-        console.log("music stopped");
     }
     else {
-        $("#backgroundmusic")
-        .attr("src", currentSong)
-        console.log("music started");
+        musicPlay();
     }
     updateSongDetails();
 }
 
+function musicPlay() {
+    $("#backgroundmusic")
+    .attr("src", songs[currentSongIndex]);
+}
+
 function updateSongDetails() {
-    currentSongDisplay = currentSong
+    currentSongDisplay = songs[currentSongIndex]
         .replace("assets/audio/", "")
-        .replace("_", " ")
-        .replace("-", " - ")
+        .replace(/_/g, " ")
+        .replace(/-/g, " - ")
         .replace(".mp3", "");
-    console.log(currentSong);
 
     if ($("#backgroundmusic").attr("src").indexOf("assets") > -1) {
         $("#musiccurrentsongdisplay")
@@ -172,5 +183,13 @@ function updateSongDetails() {
 }
 
 function musicNextTrack() {
-
+    if (currentSongIndex < songs.length -1) {
+        currentSongIndex++;
+        musicPlay();
+    }
+    else {
+        currentSongIndex = 0;
+        musicPlay();
+    }
+    updateSongDetails();
 }
