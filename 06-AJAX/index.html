@@ -14,10 +14,16 @@
 
 <body>
 
+  <video autoplay muted loop id="bgVid">
+      <source src="assets/video/distant_lights.mp4" type="video/mp4">
+  </video>
+
   <div class="container">
+
     <div class="row">
-      <div class="col">
+      <div class="col jumbotron header">
         <h1>GIPHY Feels</h1>
+        <p>Feel your feels with these GIPHY GIF feels</p>
       </div>
     </div>
 
@@ -25,22 +31,21 @@
     <!-- Rendered buttons will get dumped Here  -->
       <div class="col-md-6">
         <div id="buttons-view"></div>
-          <form id="emotion-form">
-            <label for="emotion-input">Add an emotion, Yo!</label>
-            <input id="add-emotion-form" type="text" required><br>
-            <!-- Button triggers new emotion to be added -->
-            <input id="add-emotion-btn" type="submit" value="Add a emotion, Yo!">
-          </form>
+        <form id="emotion-form">
+          <input id="add-emotion-form" type="text" placeholder="Add more feels!">
+          <input id="add-emotion-btn" class="btn btn-dark" type="submit" value="+Add">
+        </form>
+        <!-- <p id="button-instructions">Click here</p> -->
       </div>
 
       <div class="col-md-6">
         <iframe src="" allow="autoplay" style="display:none" id="backgroundmusic">
           </iframe>
-          <button id="musicbuttonstartstop">Start/Stop Music</button>
-          <button id="musicbuttonnexttrack">Next Track</button>
+          <button id="musicbuttonstartstop" class="btn btn-dark music-btns">Stop Music</button>
+          <button id="musicbuttonnexttrack" class="btn btn-dark music-btns">Next Track</button>
           <p id="musiccurrentsongdisplay"></p>
       </div>
-      
+
     </div>
 
     <!-- emotions will get dumped here :( :) :D :/ :? -->
@@ -55,9 +60,7 @@
   <!-- My Javascript -->
   <script type="text/javascript" src="assets/javascript/javascript.js"></script>
 
-  <audio controls preload="auto" style="display:none">
-      <source src="assets/audio/Jim_James-Throwback.mp3" type="audio/mpeg">
-  </audio>
+
 
 </body>
 
