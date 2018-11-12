@@ -110,25 +110,25 @@
     margin: 3px;
 }
 
-@media only screen and (min-width: 980px) {
+@media screen and (min-width: 980px) {
     .container {
         max-width: 980px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .music-btns {
         width: 45%;
     }
 }
 
-@media only screen and (max-width: 390px) {
+@media screen and (max-width: 390px) {
     .container {
         min-width: 282px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .gif-div {
         margin: 0 auto;
         max-width: unset;
