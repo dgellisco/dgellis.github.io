@@ -32,6 +32,7 @@
       name: null,
       choice: null,
       status: "",
+      score: 0,
       wins: "",
       loses: ""
       },
@@ -40,6 +41,7 @@
       name: null,
       choice: null,
       status: "",
+      score: 0,
       wins: "",
       loses: ""
       },
@@ -208,7 +210,7 @@ function canIPlay() {
       joinGame(2);
     }
     else {
-      $("#gamestatus").text("There are already two players");
+      $("#gamestatus").text("There are already two players - wait for someone to leave.");
     }
   }
 };
@@ -293,6 +295,7 @@ function setInitialUserName() {
 function submitUserChoice() {
   console.log("**starting submitUserChoice()**");
   console.log("user.choice is " + user.choice);
+  console.log("user.role is " + user.role);
 
   $("#gamestatus").text("You selected " + user.choice);
     // Update choice in Firebase
@@ -313,23 +316,10 @@ function submitUserChoice() {
     else { $("#p1-choice-img").attr("src","assets/images/rps-blank-sm.png") }
   }
   else if (user.role == "p2") {
-    console.log("user.choice is " + user.choice);
-    if (user.choice == "R") {
-      $("#p2-choice-img").attr("src","assets/images/rps-r-sm.png");
-      console.log("changed pic to R");
-    }
-      else if (user.choice == "P") {
-        $("#p2-choice-img").attr("src","assets/images/rps-p-sm.png");
-        console.log("changed pic to P");
-      }
-      else if (user.choice == "S") {
-        $("#p2-choice-img").attr("src","assets/images/rps-s-sm.png");
-        console.log("changed pic to s");
-      }
-      else {
-        $("#p2-choice-img").attr("src","assets/images/rps-blank-sm.png");
-        console.log("changed pic to blank");
-      }
+    if (user.choice == "R") { $("#p2-choice-img").attr("src","assets/images/rps-r-sm.png") }
+    else if (user.choice == "P") { $("#p2-choice-img").attr("src","assets/images/rps-p-sm.png") }
+    else if (user.choice == "S") { $("#p2-choice-img").attr("src","assets/images/rps-s-sm.png") }
+    else { $("#p2-choice-img").attr("src","assets/images/rps-blank-sm.png") }
   }
   else {
     console.log("!!ERROR!!");
@@ -372,8 +362,8 @@ function updatePlayerStatus() {
 function updateDisplay(){
   // Update display of local name and score
   $("#yourname").text(user.name);
-  $("#score-wins").text(user.wins);
-  $("#score-losses").text(user.losses);
+  $("#score-p1").text(players.p1.score);
+  $("#score-p2").text(players.p2.score);
   $("#p1status").text(players.p1.status);
   $("#p2status").text(players.p2.status);
 
@@ -384,17 +374,17 @@ function updateDisplay(){
   }
   else if (players.p1.name == null && players.p2.name != null) {
     $("#p1status").text("Waiting For Player To Join");
-    $("#p2name").text(players.p2.name);
+    $(".p2name").text(players.p2.name);
     $("#p2status").text("is ready to play!");
   }
   else if (players.p1.name != null && players.p2.name == null) {
-    $("#p1name").text(players.p1.name);
+    $(".p1name").text(players.p1.name);
     $("#p1status").text("is ready to play!");
     $("#p2status").text("Waiting For Player To Join");
   }
   else {
-      $("#p1name").text(players.p1.name);
-      $("#p2name").text(players.p2.name);
+      $(".p1name").text(players.p1.name);
+      $(".p2name").text(players.p2.name);
   }
   
 }
@@ -427,6 +417,8 @@ function evaluateRPS(){
   (players.p1.choice == "P" && players.p2.choice == "R") ||
   (players.p1.choice == "S" && players.p2.choice == "P") ){
       $("#gamestatus").text("Player 1 wins!");
+      players.p1.score++;
+      database.ref("/players/p1/score").set(players.p1.score);
   }
   // Tie scenarios
   else if (
@@ -438,6 +430,8 @@ function evaluateRPS(){
   // Else P1 lose
   else {
       $("#gamestatus").text("Player 2 wins!");
+      players.p2.score++;
+      database.ref("/players/p2/score").set(players.p2.score);
   }
 
   setTimeout(function(){
@@ -449,11 +443,17 @@ function evaluateRPS(){
 
 function resetRound(){
   $("#gamestatus").text("A new round is starting!");
+  // update firebase
+  database.ref("/players/p1/choice").remove();
+  database.ref("/players/p2/choice").remove();
   setTimeout(function(){
-    players.p1.choice = null;
-    players.p2.choice = null;
     user.choice = null;
-    // update firebase
     // update gameState
+    updateGameState();
+    // remove previous guess pics
+    console.log("endgame");
+    $("#p1-choice-img").attr("src","assets/images/rps-blank-sm.png");
+    $("#p2-choice-img").attr("src","assets/images/rps-blank-sm.png");
+    // remove previous choices    
   }, 3000);
 }

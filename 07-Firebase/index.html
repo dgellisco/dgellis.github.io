@@ -38,15 +38,17 @@
       <div class="col-md-12">
         <div id="view-vs-container">
           <div class="view-vs" id="view-vs-p1">
-            <span class="vs-section" id="vs-p1"><span id="p1name"></span><span><br></span><span id="p1status">Waiting For Player To Join</span></span>
+            <span class="vs-section" id="vs-p1"><span class="p1name"></span><span><br></span><span id="p1status">Waiting For Player To Join</span></span>
             <img src="assets/images/rps-blank-sm.png" id="p1-choice-img">
           </div>
           <div class="view-vs" id="view-vs-center">
+            <br>
+            <br>
             <span class="view-vs vs-section" id="vs-vs">vs.</span>
           </div>
           <div class="view-vs" id="view-vs-p2">
             <img src="assets/images/rps-blank-sm.png" id="p2-choice-img">
-            <span class="vs-section" id="vs-p2"><span id="p2name"></span><span><br></span><span id="p2status">Waiting For Player To Join</span></span>
+            <span class="vs-section" id="vs-p2"><span class="p2name"></span><span><br></span><span id="p2status">Waiting For Player To Join</span></span>
           </div>
         </div>
       </div>
@@ -57,12 +59,11 @@
     <div class="row">
       <div class="col">
         <span class="oneline" id="your-name"></span>
-        <span class="oneline"><span id="score-wins">0</span> Wins ~ </span>
-        <span class="oneline"><span id="score-losses">0</span> Losses</span>
+        <span class="oneline">Score... <span class="p1name">Player 1</span>: <span id="score-p1">0</span> / </span>
+        <span class="oneline"><span class="p2name">Player 2</span>: <span id="score-p2">0</span></span>
         <button class="oneline" type="button" id="btn-hard-reset">Leave Game</button>
         <button class="oneline" type="button" id="btn-hard-reset">Hard Reset</button>
-        <div class="oneline"><span id="connections-total"></span> People Connected ~ </div>
-        <div class="oneline">Your Connection ID: <span id="connections-your-id"></span></div>
+        <div class="oneline"><span id="connections-total"></span> People Connected</div>
         </div>
               
         </div>
