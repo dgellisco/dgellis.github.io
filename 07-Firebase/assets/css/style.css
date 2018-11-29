@@ -4,8 +4,18 @@ body {
     font-weight: 500;
 }
 
-.main-img, #gamestatus, #name-form {
+#name-form, #img-rps {
     display: block;
+    text-align: center;
+}
+
+.oneline {
+    display: inline-block;
+    text-align: center;
+}
+
+.main-img, #name-input, #name-submit {
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -24,7 +34,7 @@ body {
     vertical-align: middle;
 }
 
-#view-vs-left {
+#view-vs-p1 {
     width: 40%;
     text-align: right;
     float: left;
@@ -34,17 +44,17 @@ body {
     display: inline-block;
 }
 
-#view-vs-right {
+#view-vs-p2 {
     width: 40%;
     text-align: left;
     float: right;
 }
 
-.oneline {
-    display: inline-block;
-}
+
 
 #gamestatus, #name-form {
+    display: block;
+    text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
     min-height: 2.2rem;
