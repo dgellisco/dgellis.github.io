@@ -15,52 +15,54 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body onload="onloadFunction()">
 
   <div class="container">
 
     <div class="row">
-      <div class="col jumbotron header">
-        <h1>RPS</h1>
-        <p>Test</p>
+      <div class="col-md-12 view-main">
+        <div id="gamestatus"></div>
+        <form class="oneline" id="name-form">
+            <input type="text" name="name-input" id="name-input" placeholder="Enter Your Name">
+            <input type="submit" value="Submit Name" id="name-submit">    
+            <button class="oneline" type="button" id="btn-join">Join Game</button>
+          </form>
+        <img class="main-img" id="img-rps" src="assets/images/rps-full.png" width="850" height="425" orgWidth="850" orgHeight="425" usemap="#image-maps-2018-11-29-022741" alt=""/>
+          <map name="image-maps-2018-11-29-022741" id="ImageMapsCom-image-maps-2018-11-29-022741">
+            <area class="img-rps-link" id="img-rps-r-link" alt="Rock" title="Rock" shape="rect" coords="68,35,317,405" style="outline:none;" data="R">
+            <area class="img-rps-link" id="img-rps-p-link" alt="Paper" title="Paper" shape="rect" coords="317,36,564,403" style="outline:none;" data="P">
+            <area class="img-rps-link" id="img-rps-s-link" alt="Scissors" title="Scissors" shape="rect" coords="564,35,781,402" style="outline:none;" data="S">
+            <area shape="rect" coords="848,423,850,425" alt="Image Map" style="outline:none;" title="Image Map"/>
+          </map>
+      </div>
+      <div class="col-md-12">
+        <div id="view-vs-container">
+          <div class="view-vs" id="view-vs-left">
+            <span class="vs-section" id="vs-p1"><span id="p1name">Player 1<br></span><span id="p1status">Make Your Choice</span></span>
+            <img src="assets/images/rps-r-sm.png">
+          </div>
+          <div class="view-vs" id="view-vs-center">
+            <span class="view-vs vs-section" id="vs-vs">vs.</span>
+          </div>
+          <div class="view-vs" id="view-vs-right">
+            <img src="assets/images/rps-p-sm.png">
+            <span class="vs-section" id="vs-p2"><span id="p2name">Player 2<br></span><span id="p2status">Make Your Choice</span></span>
+          </div>
+        </div>
       </div>
     </div>
 
+    <br>
+    <br>
     <div class="row">
-      <div class="col-md-6">
-        <div class="rps-btns">
-          Play your hand: 
-          <button type="button" class="btn-rps" id="btn-rps-r" data="R">R</button>
-          <button type="button" class="btn-rps" id="btn-rps-p" data="P">P</button>
-          <button type="button" class="btn-rps" id="btn-rps-s" data="S">S</button>
+      <div class="col">
+        <span class="oneline"><span id="score-wins">0</span> Wins ~ </span>
+        <span class="oneline"><span id="score-losses">0</span> Losses</span>
+        <button class="oneline" type="button" id="btn-hard-reset">Leave Game</button>
+        <button class="oneline" type="button" id="btn-hard-reset">Hard Reset</button>
+        <div class="oneline"><span id="connections-total"></span> People Connected ~ </div>
+        <div class="oneline">Your Connection ID: <span id="connections-your-id"></span></div>
         </div>
-        <div id="yourguess"></div>
-        <br>
-        <form id="name-form">
-          <label for="your-name">Enter Your Name: </label>
-          <input type="text" name="name-input" id="name-input" placeholder="Enter Your Name">
-          <input type="submit" value="Submit" id="name-submit">
-        </form>
-        <br>
-        <button type="button" id="btn-join">Join Game</button>
-        <button type="button" id="btn-hard-reset">Hard Reset</button>
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-            <div class="col">
-              <div>P1: <span id="p1name"></span></div>
-              <div>P2: <span id="p2name"></span></div>
-              <br>
-              <div>Status: <span id="status"></span></div>
-              <br>
-              <div>Scoreboard</div>
-                <div>Wins: </div>
-                <div>Losses: </div>
-                <br>
-                <div>People Connected: <span id="connections-total"></span></div>
-                <br>
-                <div>Your Connection ID: <span id="connections-your-id"></span></div>
-              </div>
               
         </div>
         <br>

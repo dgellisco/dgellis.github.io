@@ -25,7 +25,6 @@
 
         
   /// ~~~ LOCAL GAME VARIABLES ~~~ ///
-
   var players = {
     p1: {
       key: "",
@@ -54,6 +53,10 @@
   };
 
   var gameState;
+  // 0 not enough players joined
+  // 1 players joined, game started, no choices
+  // 2 one choice
+  // 3 both have chosen
 
   
 
@@ -64,34 +67,40 @@
   // --- LOCAL DOM LISTENERS --- //
 
 // Input Form - Enter player name
+function onloadFunction() {
+  
+}
+
 $(document).on("click", "#name-submit", function(event) {
   event.preventDefault();
   user.name = $("#name-input").val();
-  $("#name-input").val("");
-  $("#name-form").html("<div id='yourname'>Your name: " + user.name + "</div>");
-  $("#status").text("Cool name, '" + user.name + "'!");
+  $("#name-input").remove();
+  $("#name-submit").remove();
+  $("#gamestatus").text("Cool name, '" + user.name + "'!  Let's see if you're playing");
 });
 
 // Button - Select RPS
-$(document).on("click", ".btn-rps", function(event) {
+$(document).on("click", ".img-rps-link", function(event) {
   event.preventDefault();
   // Take user choice
   if (user.choice == "") {
     user.choice = $(this).attr("data");
+
     $("#yourguess").html("You selected " + user.choice);
     if (user.role == "p1") {
       database.ref("/players/p1/choice").set(user.choice);
       // Upload user choice
-      gameStates();
+      gameStateUpdate();
     }
     else if (user.role == "p2") {
       database.ref("/players/p2/choice").set(user.choice);
       // Upload user choice
-      gameStates();
+      gameStateUpdate();
     }
     else {
       console.log("you're a spectator dude");
     }
+
   }
   else {
     $("#yourguess").html("You selected " + user.choice + ".  You can't change that now!");
@@ -132,13 +141,13 @@ connectedRef.on("value", function(snap) {
 connectionsRef.on("child_removed", function(oldChildSnap) {
   if (oldChildSnap.key == players.p1.key) {
       database.ref("/players/p1").remove();
-      $("#status").text("Player 1 disconnected");
+      $("#gamestatus").text("Player 1 disconnected");
       console.log("Player 1 disconnected");
       players.p1.name = null;
   }
   if (oldChildSnap.key == players.p2.key) {
       database.ref("/players/p2").remove();
-      $("#status").text("Player 2 disconnected");
+      $("#gamestatus").text("Player 2 disconnected");
       console.log("Player 2 disconnected");
       players.p2.name = null;
   }
@@ -201,7 +210,7 @@ function canIPlay() {
   console.log("players.p1.key is " + players.p1.key);
   console.log("players.p2.name is " + players.p2.name);
   console.log("players.p2.key is " + players.p2.key);
-  console.log();
+  
   console.log();
   console.log();
   console.log();
@@ -214,7 +223,7 @@ function canIPlay() {
       joinGame(2);
     }
     else {
-      $("#status").text("There are already two players");
+      $("#gamestatus").text("There are already two players");
     }
   }
 };
@@ -277,7 +286,7 @@ function joinGame(arg) {
   }
 }
 
-function gameStates() {
+function gameStateUpdate() {
   gameState++;
   console.log(gameState);
   database.ref("/data/gameState").set(gameState);
@@ -299,7 +308,7 @@ function setInitialUserName() {
       console.log(visitorCount);
       user.name = "Visitor " + visitorCount;
       console.log(visitorCount);
-      $("#status").html("Welcome to RPS, " + user.name + "!<br>Want a better name?  Type it in that box!");
+      $("#gamestatus").html("Welcome to RPS, " + user.name + "!  Want a better name?  Type it in this box!");
       console.log("user.name is " + user.name);
     }
     dataVRef.transaction(function(visitors) {
@@ -317,45 +326,52 @@ dataGSRef.on("value", function(gameState) {
 
     // game hasn't started yet
     case 0:
-      console.log("gameState case 0");
+      console.log("gameState case 0 - players need to join");
+      $("#gamestatus").text("Two players need to join the game");
+      break;
+
+    // game has started, nobody has chosen
+    case 1:
+      console.log("gameState case 0 - players need to join");
+      $("#gamestatus").text("Both players are chosing");
       break;
 
     // one player has chosen
-    case 1:
-      console.log("gameState case 1");
+    case 2:
+      console.log("gameState case 1 - one player has chosen");
         if (players.p1.choice == "" && players.p2.choice == "") {
-          $("#status").text("Both players need to choose");
+          console.log("error")
         }
         else if (players.p1.choice == "" && players.p2.choice != "") {
-          $("#status").text("Player 1 is still choosing");
+          $("#gamestatus").text("Player 1 is still choosing");
         }
         else if (players.p1.choice != "" && players.p2.choice == "") {
-          $("#status").text("Player 2 is still choosing");
+          $("#gamestatus").text("Player 2 is still choosing");
         }
         else {
-          $("#status").text("Both players have chosen");
+          console.log("error")
         }
       break;
 
-    // results screen
-    case 2:
+    // both players have chosen, results screen
+    case 3:
       // P1 win scenarios
       if (
       (players.p1.choice == "R" && players.p2.choice == "S") ||
       (players.p1.choice == "P" && players.p2.choice == "R") ||
       (players.p1.choice == "S" && players.p2.choice == "P") ){
-          $("#status").text("Player 1 wins!");
+          $("#gamestatus").text("Player 1 wins!");
       }
       // Tie scenarios
       else if (
         (players.p1.choice == "R" && players.p2.choice == "R") ||
         (players.p1.choice == "P" && players.p2.choice == "P") ||
         (players.p1.choice == "S" && players.p2.choice == "S") ){
-          $("#status").text("It's a tie!");
+          $("#gamestatus").text("It's a tie!");
       }
       // Else P1 lose
       else {
-          $("#status").text("Player 2 wins!");
+          $("#gamestatus").text("Player 2 wins!");
           gameStateReset();
       }
   }
