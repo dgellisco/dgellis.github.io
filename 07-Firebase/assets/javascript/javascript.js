@@ -21,6 +21,7 @@
   var connectedRef = database.ref(".info/connected");
   var playersRef = database.ref("/players");
   var dataRef = database.ref("/data");
+  var dataDCRef = database.ref("/data/disconnectors");
   var dataGSRef = database.ref("/data/gameState");
   var dataVRef = database.ref("/data/visitors");
 
@@ -140,9 +141,9 @@ connectedRef.on("value", function(snap) {
   if (snap.val()) {
     // On connect, push that connection's ID to the firebase *connections* list.  Also store connection key locally.
     var con = connectionsRef.push(true);
-    user.key = con.key;
     // On disconnect, remove from firebase *connections*
     con.onDisconnect().remove();
+    user.key = con.key;
     // Set the initial user name based on total number of connections ever
     setInitialUserName();
     updateDisplay();
@@ -166,6 +167,8 @@ connectionsRef.on("child_removed", function(oldChildSnap) {
   updateDisplay();
 });
 
+
+
 // Initial load, check players and gamestate
 database.ref("/players").on("value", function(snapshot) {
   // Set local variables of logged in players, if they exist
@@ -184,6 +187,7 @@ database.ref("/players").on("value", function(snapshot) {
 dataGSRef.on("value", function(snapState) {
   console.log("gameState is " + snapState.val());
   gameState = snapState.val();
+  updateGameState();
 });
 
 // Display locally the total number of connections, and your connection ID
@@ -197,7 +201,6 @@ connectionsRef.once("value", function(snap) {
                 /// ~~~ FUNCTIONS ~~~ ///
 
 function onloadFunction() {
-
 }
 
 // See if there's a free player slot
@@ -289,6 +292,7 @@ function setInitialUserName() {
     dataVRef.transaction(function(visitors) {
       return (visitors) + 1;
     });
+    $("#your-name").text(user.name);  
   });
 }
 
@@ -361,7 +365,7 @@ function updatePlayerStatus() {
 // Update display based on local user names and scores
 function updateDisplay(){
   // Update display of local name and score
-  $("#yourname").text(user.name);
+  console.log(user.name);
   $("#score-p1").text(players.p1.score);
   $("#score-p2").text(players.p2.score);
   $("#p1status").text(players.p1.status);

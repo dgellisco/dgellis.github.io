@@ -27,13 +27,18 @@
           <input type="submit" value="Submit Name" id="name-submit">    
           <button class="oneline" type="button" id="btn-join">Join Game</button>
         </form>
-        <img class="main-img" id="img-rps" src="assets/images/rps-full.png" width="850" height="425" orgWidth="850" orgHeight="425" usemap="#image-maps-2018-11-29-022741" alt=""/>
+        <!-- <img class="main-img" id="img-rps" src="assets/images/rps-full.png" width="850" height="425" orgWidth="850" orgHeight="425" usemap="#image-maps-2018-11-29-022741" alt=""/>
           <map name="image-maps-2018-11-29-022741" id="ImageMapsCom-image-maps-2018-11-29-022741">
             <area class="img-rps-link" id="img-rps-r-link" alt="Rock" title="Rock" shape="rect" coords="68,35,317,405" style="outline:none;" data="R">
             <area class="img-rps-link" id="img-rps-p-link" alt="Paper" title="Paper" shape="rect" coords="317,36,564,403" style="outline:none;" data="P">
             <area class="img-rps-link" id="img-rps-s-link" alt="Scissors" title="Scissors" shape="rect" coords="564,35,781,402" style="outline:none;" data="S">
             <area shape="rect" coords="848,423,850,425" alt="Image Map" style="outline:none;" title="Image Map"/>
-          </map>
+          </map> -->
+        <div class="main-img">
+          <img class="img-rps-link" id="img-rps-r" src="assets/images/rps-r.png" data="R" alt="">
+          <img class="img-rps-link" id="img-rps-p" src="assets/images/rps-p.png" data="P" alt="">
+          <img class="img-rps-link" id="img-rps-s" src="assets/images/rps-s.png" data="S" alt="">
+        </div>
       </div>
       <div class="col-md-12">
         <div id="view-vs-container">
@@ -57,13 +62,13 @@
     <br>
     <br>
     <div class="row">
-      <div class="col">
-        <span class="oneline" id="your-name"></span>
+      <div class="col footer-score">
         <span class="oneline">Score... <span class="p1name">Player 1</span>: <span id="score-p1">0</span> / </span>
         <span class="oneline"><span class="p2name">Player 2</span>: <span id="score-p2">0</span></span>
         <button class="oneline" type="button" id="btn-hard-reset">Leave Game</button>
         <button class="oneline" type="button" id="btn-hard-reset">Hard Reset</button>
-        <div class="oneline"><span id="connections-total"></span> People Connected</div>
+        <div class="oneline"><span id="connections-total"></span> People Connected / </div>
+        <div class="oneline"><span id="your-name"></span></div>
         </div>
               
         </div>
