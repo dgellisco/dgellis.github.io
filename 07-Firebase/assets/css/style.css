@@ -69,9 +69,7 @@ body {
     float: right;
 }
 
-
-
-#gamestatus, #name-form {
+#gamestatus {
     display: block;
     text-align: center;
     padding-top: 5px;

@@ -84,7 +84,18 @@ $(document).on("click", "#name-submit", function(event) {
     console.log("user.name is " + user.name);
     $("#name-input").remove();
     $("#name-submit").remove();
-    $("#gamestatus").text("Cool name, '" + user.name + "'!  Click 'Join Game' to start things off.");
+    $("#gamestatus").text("Cool name, '" + user.name + "'!");
+    console.log("user.role is " + user.role);
+    if (user.role == "p1") {
+      database.ref("players/p1").update({
+        name: user.name,
+      });
+    }
+    else if (user.role == "p2") {
+      database.ref("players/p2").update({
+        name: user.name,
+      });
+    }
     updateDisplay;
   }
   else {
@@ -127,6 +138,7 @@ $(document).on("click", "#btn-join", function(event) {
 // Button - hard reset
 $(document).on("click", "#btn-hard-reset", function(event) {
   event.preventDefault();
+  database.ref("/connection").remove();
   database.ref("/players").remove();
   database.ref("/data/gameState").remove();
   location.reload();
@@ -157,12 +169,18 @@ connectionsRef.on("child_removed", function(oldChildSnap) {
       $("#gamestatus").text("Player 1 disconnected.  Waiting for another player to join.");
       players.p1.name = null;
       updateGameState();
+      if (user.role == "") {
+        $("#btn-join").show();
+      }
   }
   if (oldChildSnap.key == players.p2.key) {
       database.ref("/players/p2").remove();
       $("#gamestatus").text("Player 2 disconnected.  Waiting for another player to join.");
       players.p2.name = null;
       updateGameState();
+      if (user.role == "") {
+        $("#btn-join").show();
+      }
   }
   updateDisplay();
 });
@@ -180,6 +198,17 @@ database.ref("/players").on("value", function(snapshot) {
   players.p2.key = snapshot.child("p2/key").val();
   players.p2.choice = snapshot.child("p2/choice").val();
   players.p2.status = snapshot.child("p2/status").val();
+  console.log("user.role is " + user.role);
+  setTimeout(function(){
+    if (user.role == "") {
+      $("#btn-join").show();
+      console.log("1");
+    }
+    else {
+      $("#btn-join").hide();
+      console.log("2");
+    }
+  }, 200);
   updateDisplay();
 });
 
@@ -187,6 +216,9 @@ database.ref("/players").on("value", function(snapshot) {
 dataGSRef.on("value", function(snapState) {
   console.log("gameState is " + snapState.val());
   gameState = snapState.val();
+  if (gameState == "roundComplete") {
+    evaluateRPS();
+  }
   updateGameState();
 });
 
@@ -232,12 +264,12 @@ function joinGame(arg) {
         database.ref("players/p1").set({
           key: user.key,
           name: user.name,
-          status: "has joined as Player 1!",
+          // status: "has joined as Player 1!",
         })
         // set local variables
         players.p1.name = user.name;
         players.p1.key = user.key;
-        players.p1.status = "has joined as Player 1!";
+        // players.p1.status = "has joined as Player 1!";
         user.role = "p1";
         updateDisplay();
         updateGameState();
@@ -256,12 +288,12 @@ function joinGame(arg) {
         database.ref("players/p2").set({
           key: user.key,
           name: user.name,
-          status: "has joined as Player 2!",
+          // status: "has joined as Player 2!",
         })
         // set local variables
         players.p2.name = user.name;
         players.p2.key = user.key;
-        players.p2.status = "has joined as Player 2!";
+        // players.p2.status = "has joined as Player 2!";
         user.role = "p2";
         updateDisplay();
         updateGameState();
@@ -301,7 +333,7 @@ function submitUserChoice() {
   console.log("user.choice is " + user.choice);
   console.log("user.role is " + user.role);
 
-  $("#gamestatus").text("You selected " + user.choice);
+  $("#gamestatus").text("You selected " + user.choice + ".");
     // Update choice in Firebase
   if (user.role == "p1") {
     database.ref("/players/p1/choice").set(user.choice);
@@ -336,25 +368,33 @@ function submitUserChoice() {
   }, 1400);
 }
 
+if (user.name != "") {
+  $("#name-input").hide();
+  $("#name-submit").hide();
+}
+else {
+  $("#name-input").show();
+  $("#name-submit").show();
+}
 
 // Update gameState locally after local change made, upload to Firebase
 function updateGameState() {
+  var z = "";
   if (players.p1.name == null || players.p2.name == null) {
     // game hasn't started yet
-    gameState = "preGame";
+    z = "preGame";
   }
   else if (players.p1.choice == null || players.p2.choice == null) {
-    gameState = "roundInProgress";
-    $("#gamestatus").text("The game has started - chose your weapon!");
+    z = "roundInProgress";
   }
   else if (players.p1.choice != null && players.p2.choice != null) {
-    gameState = "roundComplete"
-    evaluateRPS();
+    z = "roundComplete"
   }
   else {
     
   }
-  database.ref("/data/gameState").set(gameState);
+  database.ref("/data/gameState").set(z);
+  console.log("gameState is " + gameState);
   updateDisplay();
 }
 
@@ -420,9 +460,9 @@ function evaluateRPS(){
   (players.p1.choice == "R" && players.p2.choice == "S") ||
   (players.p1.choice == "P" && players.p2.choice == "R") ||
   (players.p1.choice == "S" && players.p2.choice == "P") ){
-      $("#gamestatus").text("Player 1 wins!");
-      players.p1.score++;
-      database.ref("/players/p1/score").set(players.p1.score);
+      $("#gamestatus").text(players.p1.name + " wins!");
+        players.p1.score++;
+        database.ref("/players/p1/score").set(players.p1.score);    
   }
   // Tie scenarios
   else if (
@@ -433,14 +473,14 @@ function evaluateRPS(){
   }
   // Else P1 lose
   else {
-      $("#gamestatus").text("Player 2 wins!");
+      $("#gamestatus").text(players.p2.name + " wins!");
       players.p2.score++;
-      database.ref("/players/p2/score").set(players.p2.score);
+      database.ref("/players/p1/score").set(players.p2.score);
   }
 
   setTimeout(function(){
     resetRound();
-  }, 3000);
+  }, 1600);
   
   console.log("***ending evaluateRPS***");
 }
@@ -458,6 +498,7 @@ function resetRound(){
     console.log("endgame");
     $("#p1-choice-img").attr("src","assets/images/rps-blank-sm.png");
     $("#p2-choice-img").attr("src","assets/images/rps-blank-sm.png");
+    $("#gamestatus").text("A new round has started - chose your weapon!");
     // remove previous choices    
-  }, 3000);
+  }, 1600);
 }
