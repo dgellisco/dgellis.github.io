@@ -24,6 +24,7 @@
   var dataDCRef = database.ref("/data/disconnectors");
   var dataGSRef = database.ref("/data/gameState");
   var dataVRef = database.ref("/data/visitors");
+  var dataRSRef = database.ref("/data/reset");
 
         
   /// ~~~ LOCAL GAME VARIABLES ~~~ ///
@@ -141,8 +142,18 @@ $(document).on("click", "#btn-hard-reset", function(event) {
   database.ref("/connection").remove();
   database.ref("/players").remove();
   database.ref("/data/gameState").remove();
+  database.ref("/data/reset").set("reset");
   location.reload();
 });
+
+dataRSRef.on("value", function(snap) {
+  console.log("snap");
+  if (snap.val() != null) {
+    database.ref("/data/reset").remove();
+    location.reload();
+  }
+});
+    
 
 
   // --- FIREBASE LISTENERS --- //
@@ -167,6 +178,7 @@ connectionsRef.on("child_removed", function(oldChildSnap) {
   if (oldChildSnap.key == players.p1.key) {
       database.ref("/players/p1").remove();
       $("#gamestatus").text("Player 1 disconnected.  Waiting for another player to join.");
+      $("#p1name").empty();
       players.p1.name = null;
       updateGameState();
       if (user.role == "") {
@@ -176,6 +188,7 @@ connectionsRef.on("child_removed", function(oldChildSnap) {
   if (oldChildSnap.key == players.p2.key) {
       database.ref("/players/p2").remove();
       $("#gamestatus").text("Player 2 disconnected.  Waiting for another player to join.");
+      $("#p2name").empty();
       players.p2.name = null;
       updateGameState();
       if (user.role == "") {
