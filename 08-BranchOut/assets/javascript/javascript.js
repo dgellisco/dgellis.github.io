@@ -7,7 +7,7 @@
 // 
 // 
 
-
+$(".searchBox").hide();
 
 $(window).on('load', function() {
 window.searchModule = {
@@ -254,7 +254,7 @@ window.onload=function(){
     }).datepicker("setDate", new Date());    
 
     // Get table ready
-    $('#myTable').DataTable();
+    // $('#myTable').DataTable();
 
     // Run initial API query
     apiSongKickRun();
@@ -285,9 +285,40 @@ $(document).on("click", ".button-load-video", function(event) {
     $("#bandButton").click();
     topFunction(); 
     $("#yt-btn-next").show();
+    $("#yt-btn-openinyt").show();
+    $("#yt-btn-like").show();
+    $("#yt-btn-dislike").show();
     // console.log("running loadVideo()");
     // loadVideo(headlineArtist);
+});
 
+$(document).on("click", "#yt-btn-like", function(event) {
+    event.preventDefault();
+    // Push artist to artistsLiked array
+    for (i = 0; i < eventsAllObj.length; i++) {
+        if (headlineArtist == eventsAllObj[i].artist) {
+            console.log("this is " + eventsAllObj[i].artist + " and array number " + i);
+            artistsLiked.push(headlineArtist);
+            buildEventTable();
+        }
+    }
+    $("#yt-btn-share").show();    
+});
+
+$(document).on("click", "#yt-btn-dislike", function(event) {
+    event.preventDefault();
+    // console.log($("#yt-player").attr("data-artist"));
+    for (i = 0; i < eventsAllObj.length; i++) {
+        if (headlineArtist == eventsAllObj[i].artist) {
+            console.log("this is " + eventsAllObj[i].artist + " and array number " + i);
+            eventsAllObj.splice(i, 1);
+            artistsDisliked.push(headlineArtist);
+        }
+    }       
+    $("#vidph").html('<img class="img-fluid rounded" id="vidph-pic" src="assets/images/vidph1.jpg" alt=""></img>');
+    var randImg = imagesObj[Math.floor(Math.random() * imagesObj.length)];
+    $("#vidph-pic").attr("src", randImg);
+    buildEventTable();
 });
 
 // Button to run SongKick API, using input City & Date
@@ -343,6 +374,76 @@ $(document).on("click", "#yt-btn-prev", function() {
 });
 
 
+$(document).on("click", "#yt-btn-openinyt", function() {
+    var currentVidSrc = $("#yt-player").attr("src");
+    var videoLink = currentVidSrc.replace("https://www.youtube.com/embed/", "https://www.youtube.com/watch?v=");
+    // $("#yt-player").attr("src", "https://www.youtube.com/watch?v=" + currentVidID);
+    // console.log($("#yt-player").attr("src"));
+    // var videoLink = "https://www.youtube.com/embed/" + currentVidID;
+    // https://www.youtube.com/watch?v=
+    // console.log(videoLink)
+    window.open(videoLink,'BranchOut','height:563;width:342;');
+});
+
+
+$(document).on("click", "#yt-btn-share", function() {
+
+    var currentVidSrc = $("#yt-player").attr("src");
+
+    var newWindow=window.open();
+    newWindow.document.open().write(
+        '<!DOCTYPE html></body>\
+            <html lang="en">\
+            <head>\
+            <meta charset="UTF-8">\
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">\
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+            <title>BranchOut</title>\
+            <meta charset="utf-8">\
+            \
+            <!-- Bootstrap core CSS -->\
+            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">\
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"\
+                crossorigin="anonymous">\
+            \
+            <!-- jQuery CSS -->\
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">\
+            </head>\
+            \
+            <body>\
+            <h3>Concerts I am interested in, in ' + locationCity + '</h3>\
+            <div id="content"></div>\
+            <br>\
+            </body>\
+            </html>\
+        ');
+
+    $(newWindow.document.body).ready(function() {
+        for (var i = 0; i < eventsAllObj.length; i++) {
+            for (j = 0; j < artistsLiked.length; j++) {
+                if (eventsAllObj[i].artist == artistsLiked[j]) {
+                    $(newWindow.document.body).append("\
+                        <section id='artist" + i + "'>\
+                            <h5>" + eventsAllObj[i].name + "</h5>\
+                            <p>" + eventsAllObj[i].venue + " at " + eventsAllObj[i].startTime + "<p>\
+                            <iframe src='" + currentVidSrc + "' frameborder='0' allowfullscreen='' id='yt-player' height='563' width='342'></iframe>\
+                            <a href='" + eventsAllObj[i].url + "'>SongKick Event Page</a>\
+                            <br>\
+                        </section>\
+                    ");
+                    console.log(eventsAllObj[i].artist + " is the same as liked " + artistsLiked[j]);
+                }
+            }
+        }
+        $(newWindow.document.body).append("\
+            <h3>Let me know if you are interested in any of these!</h3>\
+            <br>\
+        ");
+    });
+
+    location.href = "mailto:friend@friend.com?subject=Concerts I'm Interest In";
+
+});
 
 
                 //// **** FUNCTIONS **** ////
@@ -459,70 +560,95 @@ function apiSongKickRun() {
             console.log(eventsAllObj);
             console.log(eventsAllObj.length);
 
-            // Pull x number of events from local array of events (i.e. eventsAllObj array).
-            // Deletes them from the array so they aren't shown again.
-            // !!!!! IF THE SAME SEARCH IS RUN, PERHAPS CONTINUE TO READ AND REMOVE FROM REMAINING ARRAY.  THIS WILL AVOID DUPLICATES.
-            $("#myTableBody").html("");
-
-            for (var i = 0; i < eventsAllObj.length; i++) {
-                console.log("i is " + i);
-                // var x = Math.floor(Math.random()*eventsAllObj.length);
-                // eventsObj.push(eventsAllObj[x]);
-                // eventsAllObj.splice(x, 1);
-
-                // Cut out extraneous text from event name (i.e. 'Beck at The Paramount (November 27)' becomes 'Beck')
-                var eventName = "";
-                if (eventsAllObj[i].name.includes(" at "))
-                    eventName = eventsAllObj[i].name.substring(0, eventsAllObj[i].name.indexOf(' at '));
-                else {
-                    eventName = eventsAllObj[i].artist;
-                }
-                eventName = eventName.replace(eventsAllObj[i].artist, "");
-                if (eventName.startsWith(" and ")){
-                    eventName = eventName.replace(" and ", "");
-                }
-                if (eventName.startsWith(" with ")){
-                    eventName = eventName.replace(" with ", "");
-                }
-                if (eventName.startsWith(", ")){
-                    eventName = eventName.replace(", ", "");
-                }
-
-                var startTime = "";
-                if (eventsAllObj[i].starttime == null) {
-                    startTime = "18:00";
-                }
-                else {
-                    startTime = eventsAllObj[i].starttime;
-                    startTime = startTime.slice(0, -3);
-                }
-
-                $("#myTableBody").append('\
-                    <tr>\
-                        <td>' + eventsAllObj[i].artist + '</td>\
-                        <td>' + eventsAllObj[i].venue + '</td>\
-                        <td>' + eventName + '</td>\
-                        <td>' + eventsAllObj[i].startdate + '</td>\
-                        <td>' + startTime + '</td>\
-                        <td><a href="#" class="button-load-video" id="youtubeInputSearch" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Load Videos</a></td>\
-                        <td><a href="' + eventsAllObj[i].url + '" target="_blank" class="button-songkick-link" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Event Page</a></td>\
-                    </tr>\
-                ');
-            }
-
-            $('#myTable').DataTable();
-
-            // Prints all remaining events in eventsAllObj array
-            // console.log(eventsAllObj);
-            // Prints all events we've pushed to html
-            // console.log(eventsObj);
+            buildEventTable();
 
         });
 
     });
 
 }
-      $(".searchBox").hide();
 
 
- 
+function buildEventTable() {
+    // Pull x number of events from local array of events (i.e. eventsAllObj array).
+    // Deletes them from the array so they aren't shown again.
+    // !!!!! IF THE SAME SEARCH IS RUN, PERHAPS CONTINUE TO READ AND REMOVE FROM REMAINING ARRAY.  THIS WILL AVOID DUPLICATES.
+    $("#myTableBody").html("");
+
+    for (var i = 0; i < eventsAllObj.length; i++) {
+        console.log("i is " + i);
+        // var x = Math.floor(Math.random()*eventsAllObj.length);
+        // eventsObj.push(eventsAllObj[x]);
+        // eventsAllObj.splice(x, 1);
+
+        // Cut out extraneous text from event name (i.e. 'Beck at The Paramount (November 27)' becomes 'Beck')
+        var eventName = "";
+        if (eventsAllObj[i].name.includes(" at "))
+            eventName = eventsAllObj[i].name.substring(0, eventsAllObj[i].name.indexOf(' at '));
+        else {
+            eventName = eventsAllObj[i].artist;
+        }
+        eventName = eventName.replace(eventsAllObj[i].artist, "");
+        if (eventName.startsWith(" and ")){
+            eventName = eventName.replace(" and ", "");
+        }
+        if (eventName.startsWith(" with ")){
+            eventName = eventName.replace(" with ", "");
+        }
+        if (eventName.startsWith(", ")){
+            eventName = eventName.replace(", ", "");
+        }
+
+        var startTime = "";
+        if (eventsAllObj[i].starttime == null) {
+            startTime = "18:00";
+        }
+        else {
+            startTime = eventsAllObj[i].starttime;
+            startTime = startTime.slice(0, -3);
+        }
+
+        $("#myTableBody").append('\
+            <tr id="eventsAllObj' + i + '">\
+                <td>' + eventsAllObj[i].artist + '</td>\
+                <td>' + eventsAllObj[i].venue + '</td>\
+                <td>' + eventName + '</td>\
+                <td>' + eventsAllObj[i].startdate + '</td>\
+                <td>' + startTime + '</td>\
+                <td><a href="#" class="button-load-video" id="youtubeInputSearch" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Load Videos</a></td>\
+                <td><a href="' + eventsAllObj[i].url + '" target="_blank" class="button-songkick-link" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Event Page</a></td>\
+            </tr>\
+        ');
+
+        // $("#myTableBody").append('\
+        //     <tr id="eventsAllObj' + i + '">\
+        //         <td>' + eventsAllObj[i].artist + '</td>\
+        //         <td>' + eventsAllObj[i].venue + '</td>\
+        //         <td>' + eventsAllObj[i].startdate + '</td>\
+        //         <td><a href="#" class="button-load-video" id="youtubeInputSearch" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Load Video</a></td>\
+        //         <td><div class="tooltip" id="moreInfo' + i + '" title="Start Time: ' + startTime + '<br>Test">More Info</div></td>\
+        //     </tr>\
+        // ');
+
+        // // $("#moreInfo" + i).append('<div class="tooltip" title="Start Time: ' + startTime + '">More Info2</div>');
+
+        // $('.tooltip').tooltip({html: true});
+
+
+        for (j = 0; j < artistsLiked.length; j++) {
+            if (eventsAllObj[i].artist == artistsLiked[j]) {
+                $("#eventsAllObj" + i).css("background-color", "lightgreen");
+                console.log(eventsAllObj[i].artist + " is the same as liked " + artistsLiked[j]);
+            }
+        }
+    }
+
+    // $('#myTable').DataTable();
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // Prints all remaining events in eventsAllObj array
+    // console.log(eventsAllObj);
+    // Prints all events we've pushed to html
+    // console.log(eventsObj);
+}
