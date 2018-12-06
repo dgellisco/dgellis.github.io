@@ -263,6 +263,7 @@ window.onload=function(){
 
 // Button to run SongKick API, using input City & Date
 $(document).on("click", "#form-run-songkick", function() {
+    $("#myTableBody").empty();
     if (songKickMinDate != null && songKickMaxDate != null) {
         apiSongKickRun();
     }
@@ -279,7 +280,6 @@ function topFunction() {
 $(document).on("click", ".button-load-video", function(event) {
     event.preventDefault();
     headlineArtist = $(this).attr("data-artist");
-
     $("#bandInput").val('"' + headlineArtist + '" music');
     console.log("headline artist is " + $("#bandInput").val());
     $("#bandButton").click();
@@ -390,58 +390,77 @@ $(document).on("click", "#yt-btn-share", function() {
 
     var currentVidSrc = $("#yt-player").attr("src");
 
-    var newWindow=window.open();
-    newWindow.document.open().write(
-        '<!DOCTYPE html></body>\
-            <html lang="en">\
-            <head>\
-            <meta charset="UTF-8">\
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">\
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-            <title>BranchOut</title>\
-            <meta charset="utf-8">\
-            \
-            <!-- Bootstrap core CSS -->\
-            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">\
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"\
-                crossorigin="anonymous">\
-            \
-            <!-- jQuery CSS -->\
-            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">\
-            </head>\
-            \
-            <body>\
-            <h3>Concerts I am interested in, in ' + locationCity + '</h3>\
-            <div id="content"></div>\
-            <br>\
-            </body>\
-            </html>\
-        ');
-
-    $(newWindow.document.body).ready(function() {
-        for (var i = 0; i < eventsAllObj.length; i++) {
-            for (j = 0; j < artistsLiked.length; j++) {
-                if (eventsAllObj[i].artist == artistsLiked[j]) {
-                    $(newWindow.document.body).append("\
-                        <section id='artist" + i + "'>\
-                            <h5>" + eventsAllObj[i].name + "</h5>\
-                            <p>" + eventsAllObj[i].venue + " at " + eventsAllObj[i].startTime + "<p>\
-                            <iframe src='" + currentVidSrc + "' frameborder='0' allowfullscreen='' id='yt-player' height='563' width='342'></iframe>\
-                            <a href='" + eventsAllObj[i].url + "'>SongKick Event Page</a>\
-                            <br>\
-                        </section>\
-                    ");
-                    console.log(eventsAllObj[i].artist + " is the same as liked " + artistsLiked[j]);
-                }
+    var mailBody = "";
+    for (var i = 0; i < eventsAllObj.length; i++) {
+        for (j = 0; j < artistsLiked.length; j++) {
+            if (eventsAllObj[i].artist == artistsLiked[j]) {
+                mailBody = mailBody + "%0A%20%20" + eventsAllObj[i].artist
+                    + "%20at%20" + eventsAllObj[i].venue + "%20on%20" + eventsAllObj[i].startdate
+                    // + "%0A" + eventsAllObj[i].url + " ";
+                    + "%0A";
             }
         }
-        $(newWindow.document.body).append("\
-            <h3>Let me know if you are interested in any of these!</h3>\
-            <br>\
-        ");
-    });
+    }
 
-    location.href = "mailto:friend@friend.com?subject=Concerts I'm Interest In";
+    // mailBody.replace(/ /g,"%20");
+
+    console.log(mailBody);
+
+    location.href = "mailto:?subject=BranchOut%20-%20Your%20friend%20recommended%20these%20concerts%20in%20" + locationCity + "\
+        &body=I'm%20interested%20in%20these%20upcoming%20concerts%20in%20" + locationCity + "%20-%20let%20me%20know%20if%20you're%20interested%20too!%0A%0A\
+        " + mailBody + "\
+        %0A%0AI%20found%20these%20concerts%20using%20BranchOut%20https://dgellisco.github.io/08-BranchOut/";
+
+    // var newWindow=window.open();
+    // newWindow.document.open().write(
+    //     '<!DOCTYPE html></body>\
+    //         <html lang="en">\
+    //         <head>\
+    //         <meta charset="UTF-8">\
+    //         <meta http-equiv="X-UA-Compatible" content="IE=edge">\
+    //         <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    //         <title>BranchOut</title>\
+    //         <meta charset="utf-8">\
+    //         \
+    //         <!-- Bootstrap core CSS -->\
+    //         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">\
+    //         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"\
+    //             crossorigin="anonymous">\
+    //         \
+    //         <!-- jQuery CSS -->\
+    //         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">\
+    //         </head>\
+    //         \
+    //         <body>\
+    //         <h3>Concerts I am interested in, in ' + locationCity + '</h3>\
+    //         <div id="content"></div>\
+    //         <br>\
+    //         </body>\
+    //         </html>\
+    //     ');
+
+    // $(newWindow.document.body).ready(function() {
+    //     for (var i = 0; i < eventsAllObj.length; i++) {
+    //         for (j = 0; j < artistsLiked.length; j++) {
+    //             if (eventsAllObj[i].artist == artistsLiked[j]) {
+    //                 $(newWindow.document.body).append("\
+    //                     <section id='artist" + i + "'>\
+    //                         <h5>" + eventsAllObj[i].name + "</h5>\
+    //                         <p>" + eventsAllObj[i].venue + " at " + eventsAllObj[i].startTime + "<p>\
+    //                         <iframe src='" + currentVidSrc + "' frameborder='0' allowfullscreen='' id='yt-player' height='563' width='342'></iframe>\
+    //                         <a href='" + eventsAllObj[i].url + "'>SongKick Event Page</a>\
+    //                         <br>\
+    //                     </section>\
+    //                 ");
+    //                 console.log(eventsAllObj[i].artist + " is the same as liked " + artistsLiked[j]);
+    //             }
+    //         }
+    //     }
+    //     $(newWindow.document.body).append("\
+    //         <h3>Let me know if you are interested in any of these!</h3>\
+    //         <br>\
+    //     ");
+    // });
 
 });
 
@@ -615,8 +634,8 @@ function buildEventTable() {
                 <td>' + eventName + '</td>\
                 <td>' + eventsAllObj[i].startdate + '</td>\
                 <td>' + startTime + '</td>\
-                <td><a href="#" class="button-load-video" id="youtubeInputSearch" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Load Videos</a></td>\
-                <td><a href="' + eventsAllObj[i].url + '" target="_blank" class="button-songkick-link" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Event Page</a></td>\
+                <td><a href="#" class="button-load-video" id="loadVidBtn' + i + '" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Load Videos</a></td>\
+                <td><a href="' + eventsAllObj[i].url + '" target="_blank" class="button-songkick-link" id="eventPageBtn' + i + '" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Event Page</a></td>\
             </tr>\
         ');
 
@@ -637,7 +656,9 @@ function buildEventTable() {
 
         for (j = 0; j < artistsLiked.length; j++) {
             if (eventsAllObj[i].artist == artistsLiked[j]) {
-                $("#eventsAllObj" + i).css("background-color", "lightgreen");
+                $("#eventsAllObj" + i).css("background-color", "#007bff");
+                $("#loadVidBtn" + i).addClass("link-liked");
+                $("#eventPageBtn" + i).addClass("link-liked");
                 console.log(eventsAllObj[i].artist + " is the same as liked " + artistsLiked[j]);
             }
         }
