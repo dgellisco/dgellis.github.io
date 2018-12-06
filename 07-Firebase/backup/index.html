@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RPS</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="onloadFunction()">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12 view-main">
+        <div class="oneline" id="gamestatus"></div>
+        <form class="oneline" id="name-form">
+          <input type="text" name="name-input" id="name-input" placeholder="Enter your name">
+          <input type="submit" value="Submit Name" id="name-submit">    
+          <button class="oneline" type="button" id="btn-join">Join Game</button>
+        </form>
+        <img class="main-img" id="img-rps" src="assets/images/rps-full.png" width="850" height="425" orgWidth="850" orgHeight="425" usemap="#image-maps-2018-11-29-022741" alt=""/>
+          <map name="image-maps-2018-11-29-022741" id="ImageMapsCom-image-maps-2018-11-29-022741">
+            <area class="img-rps-link" id="img-rps-r-link" alt="Rock" title="Rock" shape="rect" coords="68,35,317,405" style="outline:none;" data="R">
+            <area class="img-rps-link" id="img-rps-p-link" alt="Paper" title="Paper" shape="rect" coords="317,36,564,403" style="outline:none;" data="P">
+            <area class="img-rps-link" id="img-rps-s-link" alt="Scissors" title="Scissors" shape="rect" coords="564,35,781,402" style="outline:none;" data="S">
+            <area shape="rect" coords="848,423,850,425" alt="Image Map" style="outline:none;" title="Image Map"/>
+          </map>
+      </div>
+      <div class="col-md-12">
+        <div id="view-vs-container">
+          <div class="view-vs" id="view-vs-p1">
+            <span class="vs-section" id="vs-p1"><span class="p1name"></span><span><br></span><span id="p1status">Waiting For Player To Join</span></span>
+            <img src="assets/images/rps-blank-sm.png" id="p1-choice-img">
+          </div>
+          <div class="view-vs" id="view-vs-center">
+            <br>
+            <br>
+            <span class="view-vs vs-section" id="vs-vs">vs.</span>
+          </div>
+          <div class="view-vs" id="view-vs-p2">
+            <img src="assets/images/rps-blank-sm.png" id="p2-choice-img">
+            <span class="vs-section" id="vs-p2"><span class="p2name"></span><span><br></span><span id="p2status">Waiting For Player To Join</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="row">
+      <div class="col footer-score">
+        <span class="oneline">Score... <span class="p1name">Player 1</span>: <span id="score-p1">0</span> / </span>
+        <span class="oneline"><span class="p2name">Player 2</span>: <span id="score-p2">0</span></span>
+        <button class="oneline" type="button" id="btn-hard-reset">Leave Game</button>
+        <button class="oneline" type="button" id="btn-hard-reset">Hard Reset</button>
+        <div class="oneline"><span id="connections-total"></span> People Connected / </div>
+        <div class="oneline"><span id="your-name"></span></div>
+        </div>
+              
+        </div>
+        <br>
+        <!-- <div class="row">
+            <div class="col">
+                <div>Chat</div>
+                <textarea id="chat-display" rows="12" cols="100%">
+                </textarea>
+
+                <div class="message-input">
+                  <div class="wrap">
+                    <input type="text" placeholder="Write your message..." />
+                    <button class="submit">Submit</button>
+                  </div>
+                </div>
+
+            </div>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+  <!-- Moment JS -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- My Javascript -->
+  <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+
+</body>
+
+</html>
