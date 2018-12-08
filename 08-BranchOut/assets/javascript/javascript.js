@@ -289,12 +289,17 @@ $(document).on("click", ".button-load-video", function(event) {
     $("#yt-btn-like").show();
     $("#yt-btn-dislike").show();
 
+
     for (var i = 0; i < eventsAllObj.length; i++) {
         if (eventsAllObj[i].artist == headlineArtist) {
+            var time;
+            if (eventsAllObj[i].starttime == null) {
+                time = "18:00"
+            }
             $("#sidebar-search-initial").html("<section class='results-text'>Artist: " + eventsAllObj[i].artist + "\
                 <br>Venue: " + eventsAllObj[i].venue + "\
                 <br>Start Date: " + eventsAllObj[i].startdate + "\
-                <br>Start Time: " + eventsAllObj[i].starttime + "\
+                <br>Start Time: " + time + "\
                 <br><a href='" + eventsAllObj[i].url + "' target='_blank'>Songkick Event Page</a>\
                 <br><br></section>")
         }
@@ -327,6 +332,11 @@ $(document).on("click", "#yt-btn-dislike", function(event) {
     $("#vidph").html('<img class="img-fluid rounded" id="vidph-pic" src="assets/images/vidph1.jpg" alt=""></img>');
     var randImg = imagesObj[Math.floor(Math.random() * imagesObj.length)];
     $("#vidph-pic").attr("src", randImg);
+    $("#sidebar-search-initial").html("Load more videos or send your favourited events to a friend.");
+    $("#yt-btn-next").hide();
+    $("#yt-btn-openinyt").hide();
+    $("#yt-btn-like").hide();
+    $("#yt-btn-dislike").hide();
     buildEventTable();
 });
 
@@ -666,7 +676,8 @@ function buildEventTable() {
             if (eventsAllObj[i].artist == artistsLiked[j]) {
                 $("#eventsAllObj" + i).css({
                     color: "#fff",
-                    "background-color": "#007bff"
+                    // "background-color": "#007bff"
+                    "background-color": "black"
                     });
                 // $("#eventsAllObj" + i).css("background-color", "#007bff");
                 $("#loadVidBtn" + i).addClass("link-liked");
