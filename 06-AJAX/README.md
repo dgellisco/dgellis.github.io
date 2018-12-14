@@ -1,14 +1,8 @@
-What the project does
- It access the GIPHY API to retrieve several GIFs based on the button clicked.  User can enter more buttons to allow searches for different GIFs.
+# The problem
+Allow people to quickly access GIFs based on search criteria.
 
-Why the project is useful
- Easy to use interface to find GIPHYs.  Taught me how to use an API.
+# The concept
+Use an API to pull GIFs into our own webpage.
 
-How users can get started with the project
- Load the page, and click on the buttons.
-
-Where users can get help with your project
- Email me at dgellis@live.com
-
-Who maintains and contributes to the project
- David Ellis dgellis@live.com
+# The solution
+Use the GIPHY API.

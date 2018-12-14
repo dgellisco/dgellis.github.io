@@ -147,6 +147,23 @@ body {
     text-align: center;
 }
 
+.contact-page-logo-links-div {
+    text-align: center;
+    display: block;
+}
+
+.contact-page-logos-link {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+.contact-page-logos-img {
+    display: inline-block;
+    height: auto;
+    width: 50px;
+}
+
 
 @media screen and (max-width: 768px) {
     

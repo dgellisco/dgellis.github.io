@@ -1,14 +1,8 @@
-What the project does
- ???
+# The problem
+How to allow two players, from anywhere in the world, play RPS without seeing the opponent's guess.
 
-Why the project is useful
- ???
+# The concept
+Use persistent data to store each player's guess and score
 
-How users can get started with the project
- ???
-
-Where users can get help with your project
- Email me at dgellis@live.com
-
-Who maintains and contributes to the project
- David Ellis dgellis@live.com
+# The solution
+Used Firebase to store the data and update each client's page based on game state.
