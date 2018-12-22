@@ -260,6 +260,14 @@ window.onload=function(){
     apiSongKickRun();
 }
 
+// $(document).on("change", "#datepickermin", function() {
+//     if ($("#datepickermin").val() > $("#datepickermax").val()){
+//         console.log($("#datepickermin").val());
+//         var x = $("#datepickermin").val();
+//         $("#datepickermax").val(x);
+//     }
+// });
+
 
 // Button to run SongKick API, using input City & Date
 $(document).on("click", "#form-run-songkick", function() {
@@ -648,11 +656,9 @@ function buildEventTable() {
 
         $("#myTableBody").append('\
             <tr id="eventsAllObj' + i + '">\
-                <td>' + eventsAllObj[i].artist + '</td>\
+                <td><a href="#" class="button-load-video" id="loadVidBtn' + i + '" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">' + eventsAllObj[i].artist + '</a></td>\
                 <td>' + eventsAllObj[i].venue + '</td>\
-                <td>' + eventsAllObj[i].startdate + '</td>\
-                <td>' + startTime + '</td>\
-                <td><a href="#" class="button-load-video" id="loadVidBtn' + i + '" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Load Videos</a></td>\
+                <td>' + eventsAllObj[i].startdate + ' at ' + startTime + '</td>\
                 <td><a href="' + eventsAllObj[i].url + '" target="_blank" class="button-songkick-link" id="eventPageBtn' + i + '" data-artist="' + eventsAllObj[i].artist + '" data-event="'+ eventsAllObj[i].id + '">Event Page</a></td>\
             </tr>\
         ');
