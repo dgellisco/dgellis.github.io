@@ -1,0 +1,155 @@
+
+
+====================================
+New search by Dave
+====================================
+   Search Type: concert-this
+   Search Term: Ella Mai
+   Search Timestamp: 2018-12-31 19:02
+
+====================================
+SEARCH RESULTS: BANDS IN TOWN
+====================================
+ Arist: Ella Mai
+ Venue: O2 Institute
+ Venue Location: Birmingham, United Kingdom
+ Date (MM/DD/YYYY): 01/08/2019
+====================================
+ 
+
+====================================
+New search by Tom
+====================================
+   Search Type: concert-this
+   Search Term: asflasjfaslfjasfasf
+   Search Timestamp: 2018-12-31 19:03
+
+
+====================================
+SEARCH RESULTS: BANDS IN TOWN
+====================================
+ERROR: No upcoming events found for 'asflasjfaslfjasfasf'
+====================================
+ 
+
+====================================
+New search by Tom
+====================================
+   Search Type: spotify-this-song
+   Search Term: Stairway To Heaven
+   Search Timestamp: 2018-12-31 19:03
+
+
+=======================
+SEARCH RESULTS: SPOTIFY
+=======================
+ Arist: Led Zeppelin
+ Song: Stairway To Heaven
+ Preview Link: https://p.scdn.co/mp3-preview/8226164717312bc411f8635580562d67e191a754?cid=8f7148bfb6c84843b52a22d84bf0e079
+ Album Name: Led Zeppelin IV (Deluxe Edition)
+=======================
+
+
+
+====================================
+New search by Tom
+====================================
+   Search Type: spotify-this-song
+   Search Term: asfjkasfaskhfas
+   Search Timestamp: 2018-12-31 19:03
+
+
+=======================
+SEARCH RESULTS: SPOTIFY
+=======================
+No results found
+=======================
+
+
+
+====================================
+New search by Tom
+====================================
+   Search Type: movie-this
+   Search Term: Saving Private Ryan
+   Search Timestamp: 2018-12-31 19:03
+
+
+=====================================
+SEARCH RESULTS: ONLINE MOVIE DATABASE
+=====================================
+ Title: Saving Private Ryan
+ Year: 1998
+ Rating (IMDB): 8.6
+ Rating (Rotten Tomatoes): 93%
+ Country: USA
+ Language: English, French, German, Czech
+ Plot: Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.
+ Actors: Tom Hanks, Tom Sizemore, Edward Burns, Barry Pepper
+====================================
+
+
+
+====================================
+New search by Tom
+====================================
+   Search Type: movie-this
+   Search Term: Star Wars
+   Search Timestamp: 2018-12-31 19:04
+
+
+=====================================
+SEARCH RESULTS: ONLINE MOVIE DATABASE
+=====================================
+ Title: Star Wars: Episode IV - A New Hope
+ Year: 1977
+ Rating (IMDB): 8.6
+ Rating (Rotten Tomatoes): 93%
+ Country: USA
+ Language: English
+ Plot: Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the evil Darth Vader.
+ Actors: Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing
+====================================
+
+
+
+====================================
+New search by Tom
+====================================
+   Search Type: do-what-it-says
+   Search Term: 
+   Search Timestamp: 2018-12-31 19:04
+
+
+=======================
+SEARCH RESULTS: SPOTIFY
+=======================
+ Arist: Staind
+ Song: It's Been Awhile
+ Preview Link: https://p.scdn.co/mp3-preview/7c98137672d37068f9081aff2c5031d91dff772d?cid=8f7148bfb6c84843b52a22d84bf0e079
+ Album Name: Break The Cycle
+=======================
+
+
+
+====================================
+New search by Tom
+====================================
+   Search Type: do-what-it-says
+   Search Term: 
+   Search Timestamp: 2018-12-31 19:05
+
+
+=====================================
+SEARCH RESULTS: ONLINE MOVIE DATABASE
+=====================================
+ Title: The Bodyguard
+ Year: 1992
+ Rating (IMDB): 6.2
+ Rating (Rotten Tomatoes): 34%
+ Country: USA
+ Language: English
+ Plot: A former Secret Service agent takes on the job of bodyguard to an R&B singer, whose lifestyle is most unlike a President's.
+ Actors: Kevin Costner, Whitney Houston, Gary Kemp, Bill Cobbs
+====================================
+
