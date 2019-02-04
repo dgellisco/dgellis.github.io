@@ -1,0 +1,43 @@
+body, html {
+    height: 100%;
+    margin-top: 20px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../imgs/bg.jpg);
+    background-repeat: repeat;
+    background-size: auto;
+    margin: 0 auto;
+}
+
+.jumbotron, .card {
+    background: rgba(255,255,255,0.5);
+}
+
+.jumbotron {
+    padding: 20px;
+}
+
+.list-group-item {
+    background: rgba(255,255,255,0.5);
+    background-color: transparent;
+}
+
+.survey-questions {
+    background-color: lightgrey;
+}
+
+.img_logo_header {
+    max-height: 150px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.menu-btns {
+    margin-left: 10px;
+}

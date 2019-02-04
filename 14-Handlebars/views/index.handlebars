@@ -1,0 +1,50 @@
+     {{!-- * Setup the `index.handlebars` to have --}}
+     {{!-- the template that Handlebars can render onto. --}}
+
+    {{!-- * Create a button in `index.handlebars` --}}
+    {{!-- that will submit the user input into the database. --}}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+           <h3>Burgers ready to eat</h3>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <div>
+              <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                <button type="submit" class='btn btn-primary'> {{this.burger_name}}</button>
+              </form>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
+
+      <div class="col-4">
+           <img src="/assets/img/hungry-burger-cartoon-vector-7974235.jpg" width="300px" id="burger_pic">
+          </div>
+
+      <div class="col-4">
+           <h3>Doh! These were devoured already</h3>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class='burgerEaten'>
+              <div>
+                <button class='btn btn-secondary'> {{this.burger_name}}</button>
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+<br>
+<h3>Add Your Dream Burger</h3>
+
+
+    <form action="/burgers" method="POST">
+      <input type="text" id="name" name="burger_name" placeholder="Enter your dream burger" required="required">
+      <button type="submit" class="addBurgerButton">Add It!</button>
+    </form>

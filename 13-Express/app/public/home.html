@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+        <img src="assets/imgs/Star_Wars.png" class="img_logo_header">
+        <hr>
+        <h2 class="text-center">Your Friends In A Galaxy Far Far Away</h2>
+        <br>
+
+      <div class="text-center">
+          <a href="/survey">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-list-alt"></span> Take The Quiz</button>
+          </a>
+          <a href="/">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-resistance"></span>
+              Browse Characters
+              <span class="fa fa-empire"></span>
+            </button>
+          </a>
+          <a href="/api/friends" target="_blank">
+            <button class="btn btn-lg btn-default menu-btns">
+               View JSON
+               <span class="fa fa-list-ul"></span>
+            </button>
+          </a><br><br>
+          <a href="https://github.com/dgellisco" target="_blank">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-github"></span> GitHub
+            </button>
+          </a>
+          <a href="https://dgellisco.github.io/" target="_blank">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-github"></span> Portfolio Page
+            </button>
+          </a>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Current Tables in Use -->
+        <div class="card">
+          <div class="card-header">
+            <h4>Potential Star Wars Besties</h4>
+          </div>
+          <div class="card-body">
+            <ul id="friendsList" class="list-group"></ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<br>
+  </div>
+
+  <footer class="footer">
+    </footer>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+  function runFriendsQuery() {
+    $.ajax({ url: "/api/friends", method: "GET" })
+      .then(function(friendsList) {
+
+        console.log(friendsList);
+        console.log("------------------------------------");
+
+        for (var i = 0; i < friendsList.length; i++) {
+
+          var friendsDisplay = $("#friendsList");
+
+          var listItem = $("<li class='list-group-item mt-4'>");
+
+          listItem.append(
+            $("<h2>").text("Friend #" + (i + 1) + " - " + friendsList[i].name),
+            $("<hr>"),
+            $("<h2>").html("<img src='" + friendsList[i].picture + "' style=max-width:100%>"),
+          );
+
+          friendsDisplay.append(listItem);
+        }
+      });
+  }
+
+  runFriendsQuery();
+
+
+
+</script>
+
+</html>

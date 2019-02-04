@@ -1,0 +1,17 @@
+body, html {
+    text-align: center;
+}
+
+#burger_pic {
+    margin: 0 auto;   
+}
+
+.btn-primary, .btn-secondary {
+    margin: 5px;
+}
+
+.col-4 {
+    min-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}

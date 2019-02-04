@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FriendFinder</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <img src="assets/imgs/Star_Wars.png" class="img_logo_header">
+      <hr>
+      <h2 class="text-center">Your Friends In A Galaxy Far Far Away</h2>
+      <br>
+
+      <div class="text-center">
+          <a href="/survey">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-list-alt"></span> Take The Quiz</button>
+          </a>
+          <a href="/">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-resistance"></span>
+              Browse Characters
+              <span class="fa fa-empire"></span>
+            </button>
+          </a>
+          <a href="/api/friends" target="_blank">
+            <button class="btn btn-lg btn-default menu-btns">
+               View JSON
+               <span class="fa fa-list-ul"></span>
+            </button>
+          </a><br><br>
+          <a href="https://github.com/dgellisco" target="_blank">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-github"></span> GitHub
+            </button>
+          </a>
+          <a href="https://dgellisco.github.io/" target="_blank">
+            <button class="btn btn-lg btn-default menu-btns">
+              <span class="fa fa-github"></span> Portfolio Page
+            </button>
+          </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>Friend Finder Quiz</h4>
+          </div>
+          <div class="card-body">
+            <form role="form" id="questionform">
+
+              <h5>Your Profile</h5>
+              <div class="form-group">
+                <label for="friend-name">Your Name</label>
+                <input type="text" class="form-control survey-questions" id="friend-name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="friend-picture">HTML Link To Your Profile Picture (GIFs Accepted)</label>
+                <input type="text" class="form-control survey-questions" id="friend-picture" required>
+              </div>
+
+              <br>
+              <h5>Questionnaire</h5>
+              <div class="form-group">
+                <label for="friend-q1">Are you a hero or a villian?</label>
+                <br>
+                <select class="survey-questions" id="q1" required>
+                  <option value="" disabled selected>Select your answer</option>
+                  <option value="1">1 ("I'll never turn to the dark side.")</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 ("I AM THE SENATE!")</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="friend-q2">Have you ever felt like building a space station, in order to rule the galaxy
+                  with an iron fist?</label>
+                <br>
+                <select class="survey-questions" id="q2" required>
+                  <option value="" disabled selected>Select your answer</option>
+                  <option value="1">1 ("No - every colony can govern itself...")</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 ("I'm currently seeking funding to build my 4th Death Star")</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="friend-q3">Are you a protagonist, or do you play a bit-part in the fate of the galaxy?</label>
+                <br>
+                <select class="survey-questions" id="q3" required>
+                  <option value="" disabled selected>Select your answer</option>
+                  <option value="1">1 ("Utinni!")</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 ("Help me Obi-Wan Kenobi, you're my only hope")</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="friend-q4">Where do you lie on the humanoid scale?</label>
+                <br>
+                <select class="survey-questions" id="q4" required>
+                  <option value="" disabled selected>Select your answer</option>
+                  <option value="1">1 ("Somebody has to save our skins.")</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 ("Chuba!")</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="friend-q5">Is the force strong with you?</label>
+                <br>
+                <select class="survey-questions" id="q5" required>
+                  <option value="" disabled selected>Select your answer</option>
+                  <option value="1">1 ("Hokey religions and ancient weapons are no match for a good blaster")</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 ("For my ally is the Force, and a powerful ally it is.")</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="friend-q6">How are you at parties? How much comic relief do you provide?</label>
+                <br>
+                <select class="survey-questions" id="q6" required>
+                  <option value="" disabled selected>Select your answer</option>
+                  <option value="1">1 ("Wipe them out. All of them.")</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 ("Ex-squeeze me -_-")</option>
+                </select>
+              </div>
+
+              <br>
+              <button type="submit" class="btn btn-secondary submit" data-toggle="modal" data-target="#bestieModal" style="margin:0 auto; display:block">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Modal -->
+    <div class="modal fade" id="bestieModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Your Match Made In A Galaxy Far Far Away</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            <img id="modal-best-match-img" src="" width="100%">
+            <br>
+            <h3 id="modal-best-match" style="text-align: center"></h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+  
+    </footer>
+
+    <div id="modal-div"></div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+
+  $(".submit").on("click", function (event) {
+    event.preventDefault();
+
+    var newFriend = {
+      name: $("#friend-name").val().trim(),
+      picture: $("#friend-picture").val().trim(),
+      scores: [
+        parseInt($("#q1").val().trim()),
+        parseInt($("#q2").val().trim()),
+        parseInt($("#q3").val().trim()),
+        parseInt($("#q4").val().trim()),
+        parseInt($("#q5").val().trim())
+      ]
+    };
+
+    console.log(newFriend);
+
+    $.post("/api/friends", newFriend)
+      .done(function (data) {
+
+        if (data) {
+          $("#modal-best-match").text(data.bestMatch);
+          $("#modal-best-match-img").attr("src", data.bestMatchImage);
+        }
+        else {
+          alert("Error");
+        }
+
+      });
+
+  });
+</script>
