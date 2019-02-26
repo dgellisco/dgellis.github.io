@@ -1,0 +1,153 @@
+<body class="bg-light">
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/img/1659170386_4649aca8-2922-4ee9-a6d1-e10dca02ebf7.png" alt="" width="200"
+        height="auto">
+      <p class="lead">Enter in your financial goals and let Goalie help you track (and achieve!) them.</p>
+      <p class="lead">Already have a goal set? Click <a href="/">here</a>.</p>
+    </div>
+
+    
+      <div class="col-md-12 order-md-1">
+
+        <form class="needs-validation" method="POST" novalidate>
+
+          <div class="row">
+            <div class="col-12 order-md-1">
+              <h4 class="mb-3">Your details</h4>
+              <div class="mb-3">
+                <label for="username">Username</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="input-username" placeholder="Username" required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Your username is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="mb-3">
+
+          <div class="row">
+            <div class="col-12 order-md-1">
+              <h4 class="mb-3">Your goal</h4>
+            </div>
+            <div class="col-lg-8 col-md-12 order-md-1">
+              <div class="mb-3">
+                <label for="address">Goal</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="input-goaldescr" placeholder="For example, 'Brand new shoes'"
+                    required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter a valid goal.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 order-md-1">
+              <div class="mb-3">
+                <label for="address">Goal Cost</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input type="text" class="form-control" id="input-goalamount" placeholder="For example, '299'"
+                    required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter a valid goal amount.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="mb-3">
+
+          <div class="row">
+            <div class="col-12 order-md-1">
+              <h4 class="mb-3">Your income and savings</h4>
+            </div>
+            <div class="col-lg-6 col-md-12 order-md-1">
+              <div class="mb-3">
+                <label for="address">Current Savings</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input type="text" class="form-control" id="input-balance" placeholder="For example, '1200'" required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter a valid goal amount.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-7 order-md-1">
+              <div class="mb-3">
+                <label for="address">Income Per Week</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input type="text" class="form-control" id="input-income" placeholder="For example, '500'.  Default weekly." required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter a valid goal amount.
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{!-- <div class="col-lg-4 col-md-5 order-md-1">
+              <div class="d-block my-3">
+                <label>Income Frequency</label>
+                <div class="custom-control custom-radio">
+                  <input id="weekly" name="incomeFrequency" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="weekly">Weekly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="biweekly" name="incomeFrequency" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="biweekly">Biweekly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="monthly" name="incomeFrequency" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="monthly">Monthly</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="annually" name="incomeFrequency" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="annually">Annually</label>
+                </div>
+              </div>
+            </div> --}}
+          </div>
+          
+          <hr class="mb-4">
+
+          <button id="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+          
+        </form>
+      </div>
+    </div>
+
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+
+
+  {{!-- Bootstrap --}}
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+
+  <script src="/js/index.js"></script>
