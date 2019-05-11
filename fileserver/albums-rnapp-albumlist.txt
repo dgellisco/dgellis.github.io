@@ -3,7 +3,7 @@
         "title": "Beautiful Midnight",
         "artist": "Matthew Good Band",
         "url": "https://www.amazon.com/Beautiful-Midnight-explicit-version-Matthew/dp/B000056K2S",
-        "image": "https://images.genius.com/d33ccc0f6656a2c8c83a0fc3e0e3460f.500x500x1.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/en/e/e4/Matthewgoodband_beautifulmidnight.png",
         "thumbnail_image": "http://concertful.com/public/foto/large/matthew-good.jpg"
     },
     {
