@@ -1,10 +1,10 @@
 [
     {
-        "title": "TayTay Swift",
-        "artist": "TayTay Swift",
-        "url": "https://www.amazon.com/TayTay-Swift/dp/B0014I4KH6",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/61McsadO1OL.jpg",
-        "thumbnail_image": "https://i.imgur.com/K3KJ3w4h.jpg"
+        "title": "Beautiful Midnight",
+        "artist": "Matthew Good Band",
+        "url": "https://www.amazon.com/Beautiful-Midnight-explicit-version-Matthew/dp/B000056K2S",
+        "image": "https://upload.wikimedia.org/wikipedia/en/e/e4/Matthewgoodband_beautifulmidnight.png",
+        "thumbnail_image": "http://concertful.com/public/foto/large/matthew-good.jpg"
     },
     {
         "title": "Fearless",
