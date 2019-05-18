@@ -24,6 +24,19 @@ body {
     min-width: 200px;
 }
 
+#about-me-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#about-me-pic {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 3px grey;
+    border-radius: 10px;
+}
+
 .content-title {
     margin: 0px 0px 15px 0px;
 }
@@ -74,7 +87,7 @@ body {
 }
 
 .portfolio-text {
-    margin-bottom: 30px;
+    margin-bottom: 38px;
 }
 
 .portfolio-lang-text {
@@ -107,7 +120,7 @@ body {
 .content-container-for-portfolio-btn-row {
     position: absolute;
     right: 0%;
-    bottom: 8%;
+    bottom: 7%;
     width: 84%;
 }
 

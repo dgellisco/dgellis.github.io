@@ -1,4 +1,4 @@
-<!--Portfolio Page-->
+<!--Home Page-->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>David Ellis: Portfolio</title>
+    <title>David Ellis: About Me</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -24,7 +24,8 @@
                     <a class="navbar-brand" href="splash.html">David Ellis</a>
 
                     <!-- Toggler/collapsibe Button -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -32,10 +33,10 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="aboutme.html">About Me</a>
+                                <a class="nav-link" href="index.html">About Me</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Portfolio</a>
+                                <a class="nav-link" href="portfolio.html">Portfolio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -48,206 +49,64 @@
     </div>
 
     <!-- Body -->
-    <div class="container-content content-portfolio">
+    <div class="container-fluid container-content">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 100%">
+                    <div class="card-body">
+                        <h3 class="card-title content-title">About Me</h5>
+                            <div class="row" id="about-me-container">
+                                <div class="col-md-8 col-sm-6">
 
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-finalproject" src="assets/images/project-rn-manager.jpg"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Manager</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">React-Native | Firebase | Redux </p>
-                            <hr>
-                            <p class="portfolio-text">A mobile app that allows a manager to schedule, contact, and manage their employees - directly from their phone.  Features authentication and a real-time database.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://github.com/dgellisco/ReactNative-SG-Manager/raw/master/README-Demo01.gif?raw=true" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View
-                                            App Demo</a>
-                                        <a href="https://github.com/dgellisco/ReactNative-SG-Manager" target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
+                                    <p>I am David Ellis, a Full Stack Web Developer and adventure seeker. I am an
+                                        Australian living and working in the United States with a passion for hiking,
+                                        travel, live music, and app creation. Getting deep into the code and finding
+                                        creative solutions to tricky problems is the type of challenge I thrive on. I am
+                                        open to new opportunites and enjoy collaborating on projects with other
+                                        like-minded coders.</p>
+                                    <span>I am fluent in:</span>
+                                    <ul>
+                                        <li>React & React-Native</li>
+                                        <li>Express, Node.js</li>
+                                        <li>Firebase, SQL, MongoDB</li>
+                                        <li>Handlebars</li>
+                                        <li>AJAX, APIs</li>
+                                        <li>GIT, VSCode</li>
+                                        <li>Bootstrap, jQuery</li>
+                                        <li>HTML, CSS, JavaScript</li>
+                                    </ul>
+                                    <p>Feel free to reach out to me using the <a href="contact.html">contact page</a>.</p>
+                                    <p>And be sure to check out my <a href="portfolio.html">portfolio</a>.</p>
                                 </div>
+
+                                <div class="col-md-4 col-sm-6">
+                                    <img id="about-me-pic" src="assets/images/aboutme01.jpg"
+                                        alt="Error: Missing Picture">
+                                    <!-- <img id="about-me-pic" src="assets/images/aboutme02small.jpg"
+                                        alt="Error: Missing Picture"> -->
+                                </div>
+
                             </div>
-                        </div>
                     </div>
                 </div>
-            
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-finalproject" src="assets/images/project-rn-reduxcities.jpg"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Redux-Cities</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">React-Native | React | Redux</p>
-                            <hr>
-                            <p class="portfolio-text">A mobile app that lists all the cities I've lived in.  Made for Android and iOS.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://github.com/dgellisco/ReactNative-SG-Redux/raw/master/README-Demo01.gif?raw=true" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View
-                                            App Demo</a>
-                                        <a href="https://github.com/dgellisco/ReactNative-SG-Redux" target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-finalproject" src="assets/images/finalproject.png"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">E-Motions</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">React | axios | Heroku</p>
-                            <hr>
-                            <p class="portfolio-text">A MERN stack wholesome meme scraper.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://e-motions.herokuapp.com/" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View
-                                            Page</a>
-                                        <a href="https://github.com/abarron7/E-Motions" target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-18" src="assets/images/project-18.jpg"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">MongoConcerts</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">Express | MongoDB</p>
-                            <hr>
-                            <p class="portfolio-text">Scrapes concerts from five different Denver venue websites.  Save, comment, and filter through each event.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://mongoconcerts.herokuapp.com/" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View
-                                            Page</a>
-                                        <a href="https://github.com/dgellisco/18-Mongo" target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-12" src="assets/images/project-12.jpg"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">Goalie</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">Express | MySQL</p>
-                            <hr>
-                            <p class="portfolio-text">Set financial goals and track your progress.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://project2-goalie.herokuapp.com" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View
-                                            Page</a>
-                                        <a href="https://github.com/dgellisco/Project2-Goalie" target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-branchout" src="assets/images/project-branchout.jpg"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">BranchOut</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">YouTube API | SongKick API</p>
-                            <hr>
-                            <p class="card-text portfolio-text">Browse upcoming concerts and discover your next favourite band, all on one page.</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://dgellisco.github.io/08-BranchOut/index.html" target="_blank"
-                                            class="btn btn-primary float-right content-portfolio-open-btn">View Page</a>
-                                        <a href="https://github.com/dgellisco/dgellisco.github.io/tree/master/08-BranchOut"
-                                            target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
-                    <div class="card content-portfolio-card">
-                        <img class="card-img-top content-portfolio-pic" id="portfolio-pic-07" src="assets/images/project-07.jpg"
-                            alt="Error: Missing Portfolio Pic">
-                        <div class="card-body content-portfolio-card-body">
-                            <h5 class="card-title">GIPHY GIF Generator</h5>
-                            <hr>
-                            <p class="portfolio-lang-text">HTML | CSS | JavaScript</p>
-                            <hr>
-                            <p class="card-text portfolio-text">Looking for that perfect GIF to express how you feel?
-                                Let this generator help!</p>
-                            <div class="container-fluid content-container-for-portfolio-btn">
-                                <div class="row content-container-for-portfolio-btn-row">
-                                    <div class="col content-porfolio-btn-col">
-                                        <a href="https://dgellisco.github.io/06-AJAX/index.html" target="_blank" class="btn btn-primary float-right content-portfolio-open-btn">View
-                                            Page</a>
-                                        <a href="https://github.com/dgellisco/dgellisco.github.io/tree/master/06-AJAX"
-                                            target="_blank" class="float-left content-portfolio-open-btn">
-                                            <img src="assets/images/logo-github.png" class="img-github-link">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
-    </div>
+        <footer class="footer">
+            <div class="container-fluid bg-dark">
+                <span class="text-muted">Copyright &copy;</span>
+            </div>
+        </footer>
 
-    <footer class="footer">
-        <div class="container-fluid bg-dark">
-            <span class="text-muted">Copyright &copy;</span>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
