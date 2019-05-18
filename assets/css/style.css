@@ -77,6 +77,10 @@ body {
     margin-bottom: 30px;
 }
 
+.portfolio-lang-text {
+    text-align: center;
+}
+
 /* .content-portfolio-card-body {
     position: relative;
 } */
@@ -90,6 +94,10 @@ body {
 }
 
 */
+
+.card-title {
+    text-align: center;
+}
 
 .content-portfolio-card-body {
     padding-bottom: 42px;
