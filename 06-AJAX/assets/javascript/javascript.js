@@ -108,7 +108,7 @@ function renderButtons() {
 // render static GIFs
 function renderGIF() {
   
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + clickedBtn + "&rating=pg-13";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + clickedBtn + "&api_key=xBj03qOiowUWzfI7OThTnrF16dzVrqml&rating=pg-13";
 
     $.ajax({
       url: queryURL,
