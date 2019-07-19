@@ -153,7 +153,7 @@ hr {
     margin-bottom: 32px;
 }
 
-.img-github-link {
+.img-github-link, .img-googleplay-link {
     height: 36px;
     width: 36px;
 }
